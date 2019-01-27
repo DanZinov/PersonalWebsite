@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
-  <link rel="icon" href="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/iconweb.png">
+  <link
+    rel="icon"
+    href="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/iconweb.png"
+  />
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Montserrat"
@@ -21,7 +24,15 @@
   <head>
     <script type="text/javascript">
       if (window.innerWidth <= 1440) {
-        document.location = "https://danzinov.github.io/PersonalWebsite/mobile.html";
+        document.location = "mobile.html";
+      }
+      var viewMode = getCookie("view-mode");
+      if (viewMode == "mobile") {
+        viewMode.setAttribute("desktop");
+        viewport.setAttribute(
+          "content",
+          "width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"
+        );
       }
     </script>
   </head>
