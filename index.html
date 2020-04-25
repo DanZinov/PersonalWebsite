@@ -21,199 +21,118 @@
     rel="stylesheet"
     href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css"
   />
-  <head>
-    <script type="text/javascript">
-      if (window.innerWidth <= 1440) {
-        document.location = "mobile.html";
-      }
-    </script>
-  </head>
   <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
     body {
-      background: url(blue.jpg);
+      background-color: rgb(42, 42, 42);
     }
-
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background-color: #414141;
-      position: sticky;
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 5vh;
+      position: fixed;
+      width: 100%;
       top: 0;
-      z-index: 2;
+      z-index: 100;
+      background-color: #253233;
     }
-
-    li {
-      float: left;
+    .navig {
+      display: flex;
+      justify-content: space-evenly;
+      width: 40%;
+      margin-left: 10vh;
     }
-
-    li a {
-      display: block;
+    .navig li {
+      list-style: none;
+      padding: 14px 20px;
+      border-radius: 10px;
+    }
+    .navig li:hover {
+      background-color: #8ea859;
+      box-shadow: 0 0 10px #8ea859, 0 0 40px #8ea859, 0 0 80px #8ea859;
+      transition: 1s;
+    }
+    .navig a {
       color: white;
-      text-align: center;
-      padding: 14px 30px;
       text-decoration: none;
+      font-weight: bold;
       font-size: 20px;
     }
-
-    li a:hover {
-      background-color: #9aab77;
+    .nav-links {
+      display: flex;
+      justify-content: space-around;
+      width: 25%;
+      margin-right: 2vh;
     }
-    mi {
-      float: right;
+    .nav-links li {
+      list-style: none;
     }
-
-    mi a {
-      display: block;
+    .nav-links a:hover {
+      background-color: #8ea859;
+      box-shadow: 0 0 10px #8ea859, 0 0 40px #8ea859, 0 0 80px #8ea859;
+      transition: 1s;
+    }
+    .nav-links a {
       color: white;
-      text-align: center;
-      padding: 14px 30px;
       text-decoration: none;
-      font-size: 20px;
+      letter-spacing: 3px;
+      font-size: 14px;
+      padding: 10px 10px;
+      border-radius: 10px;
     }
-
-    mi a:hover {
-      background-color: #9aab77;
+    .condense {
+      display: none;
     }
-
+    .condense div {
+      width: 40px;
+      background-color: white;
+      height: 3px;
+      margin: 8px;
+      margin-left: 2vh;
+    }
     .home {
       margin-bottom: 50px;
-    }
-
-    .skills {
-      margin-bottom: 50px;
-      padding-top: 55px;
-    }
-
-    .projects {
-      padding-top: 55px;
-      margin-bottom: 50px;
-    }
-    .relevant_experience {
-      padding-top: 20px;
-      margin-bottom: 50px;
-    }
-    .relevant_experience_container {
-      background-color: #ffedc6;
-      color: #3c3c3c;
-      text-align: center;
-      margin-top: 20px;
-      margin-left: 50px;
-      margin-right: 50px;
-      padding-right: 15px;
-      padding-left: 15px;
-      border: 20px solid #9aab77;
-      border-style: double;
-      border-radius: 10px;
-      z-index: 1;
-    }
-
-    .container {
-      background-color: #ffedc6;
-      color: #3c3c3c;
-      text-align: center;
-      margin-top: 20px;
-      margin-left: 50px;
-      margin-right: 50px;
-      padding-right: 15px;
-      padding-left: 15px;
-      border: 20px solid #9aab77;
-      border-style: double;
-      border-radius: 10px;
-    }
-
-    h1 {
-      font-family: "Lato", sans-serif;
-      font-size: 60px;
-      font-weight: bold;
-    }
-
-    h2 {
-      font-family: "Lato", sans-serif;
-      font-size: 30px;
-      font-weight: bold;
-      margin-bottom: 36px;
+      position: relative;
+      width: 80%;
+      margin-left: 10%;
+      margin-right: 10%;
     }
     .title {
-      background-color: #ffedc6;
-      color: #3c3c3c;
-      padding-right: 50px;
-      padding-left: 50px;
+      background-color: #5d5d5d;
+      color: #ffffff;
       font-family: "Lato", sans-serif;
       font-size: 60px;
       font-weight: bold;
-      border: 5px solid #9aab77;
+      border: 5px solid #ffffff;
       border-radius: 10px;
       text-align: center;
       margin-left: 30%;
       margin-right: 30%;
     }
-
-    .grid-container {
-      background-color: #ffedc6;
-      color: #3c3c3c;
-      display: grid;
-      grid-template-columns: auto auto auto auto;
-      margin: 50px;
-      padding: 15px;
-      border: 20px solid #9aab77;
-      border-style: double;
-      border-radius: 10px;
-    }
-
-    .grid-container > div {
-      overflow: hidden;
-      text-align: center;
-      padding: 5px 0;
-      font-size: 100px;
-    }
-
-    a {
-      font-family: "Montserrat", sans-serif;
-    }
-    b {
-      color: #255296;
-      font-size: 35px;
-    }
-    .zoom {
-      transition: transform 0.2s;
-      height: 170px;
-      width: 170px;
-    }
-
-    .zoom:hover {
-      transform: scale(1.3);
-    }
-
-    .profile_container_button {
-      border-radius: 10px;
-      background-color: #3c3c3c;
-      border: solid;
-      color: #ffffff;
-      text-align: center;
-      font-size: 50px;
-      padding-top: 15px;
-      padding-bottom: 15px;
-      width: 70%;
-      height: 80px;
-    }
     .button {
+      background-color: #253233;
       display: inline-block;
       border-radius: 10px;
-      background-color: #3c3c3c;
       border: solid;
       color: #ffffff;
       text-align: center;
-      font-size: 30px;
-      padding-top: 15px;
-      padding-bottom: 15px;
+      font-size: 25px;
+      padding: 15px;
       width: 30%;
       transition: all 0.5s;
       cursor: pointer;
-      margin-left: 20px;
-      margin-right: 20px;
-      margin-bottom: 20px;
+      margin: 20px;
+    }
+    .icon {
+      border-radius: 10px;
+      border: solid;
+      color: #ffffff;
+      padding: 25px 30px 15px 50px;
     }
 
     .button span {
@@ -234,288 +153,1045 @@
 
     .button:hover span {
       padding-right: 25px;
+      background-color: #8ea859;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #8ea859, 0 0 40px #8ea859, 0 0 80px #8ea859;
     }
 
     .button:hover span:after {
       opacity: 1;
       right: 0;
     }
+
+    .container {
+      background-color: #5d5d5d;
+      color: #ffffff;
+      text-align: center;
+      margin: 50px;
+      padding: 15px;
+      border: 20px solid #ffffff;
+      border-style: double;
+      border-radius: 10px;
+    }
+    .skills {
+      margin-bottom: 50px;
+      position: relative;
+      width: 80%;
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+    .grid-container {
+      background-color: #5d5d5d;
+      color: #ffffff;
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      margin: 50px;
+      padding: 50px 0% 30px 14%;
+      border: 20px solid #ffffff;
+      border-style: double;
+      border-radius: 10px;
+    }
+    .dev-icon {
+      padding: 30px;
+      margin: 10% 5% 10% 5%;
+      transition: all 0.4s ease;
+      background-repeat: no-repeat;
+      background-size: 60px;
+      width: 50px;
+      height: 50px;
+    }
+    .dev-icon-text {
+      display: none;
+    }
+    .dev-icon:hover {
+      padding: 30px;
+      margin: 10% 5% 10% 5%;
+      background-repeat: no-repeat;
+      background-size: 60px;
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      transform: translateX(-20px);
+      background-color: #8ea859;
+      box-shadow: 0 0 10px #8ea859, 0 0 40px #8ea859, 0 0 80px #8ea859;
+    }
+    .dev-icon:hover > .dev-icon-text {
+      display: block;
+      background-color: #8ea859;
+      border-radius: 10px;
+      position: absolute;
+      text-align: right;
+      padding-left: 30px;
+      padding-right: 30px;
+      margin-top: -10px;
+      margin-left: 50px;
+      box-shadow: 0 0 10px #8ea859, 0 0 40px #8ea859, 0 0 80px #8ea859;
+    }
+    .projects {
+      margin-bottom: 50px;
+      position: relative;
+      width: 80%;
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+    .zoom {
+      transition: transform 0.2s;
+      background-color: black;
+      height: 150px;
+      width: 150px;
+      border-radius: 45px;
+      margin-bottom: 45px;
+    }
+
+    .zoom:hover {
+      transform: scale(1.3);
+      box-shadow: 0 0 30px #8ea859, 0 0 40px #8ea859, 0 0 70px #8ea859;
+    }
+    .project-container {
+      background-color: #5d5d5d;
+      color: #ffffff;
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      margin: 50px;
+      padding: 50px 5% 30px 5%;
+      border: 20px solid #ffffff;
+      border-style: double;
+      border-radius: 10px;
+    }
+    .relevant_experience {
+      margin-bottom: 50px;
+      position: relative;
+      width: 80%;
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+    .relevant_experience_container {
+      background-color: #5d5d5d;
+      color: #ffffff;
+      text-align: center;
+      margin: 50px;
+      padding: 15px;
+      border: 20px solid #ffffff;
+      border-style: double;
+      border-radius: 10px;
+    }
+    #full-page {
+      position: absolute;
+      align-items: center;
+      top: 10vh;
+      width: 100%;
+    }
+
+    .relevant_experience_title {
+      font-size: 30px;
+      color: #a7c6ff;
+      text-decoration: underline;
+    }
+    .relevant_experience_text {
+      font-size: 25px;
+    }
+    .zoom-text {
+      font-size: 22px;
+    }
+
+    @media screen and (max-width: 1280px) {
+      body {
+        overflow-x: hidden;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 8vh;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+        background-color: #253233;
+      }
+
+      .navig {
+        position: absolute;
+        left: 0px;
+        height: 40vh;
+        top: 5vh;
+        margin-left: 0vh;
+        background-color: #253233;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 30%;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in;
+      }
+      .navig li {
+        opacity: 0;
+      }
+      .nav-links {
+        position: absolute;
+        right: 4vw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .condense {
+        display: block;
+        left: 50vh;
+      }
+      .title {
+        background-color: #5d5d5d;
+        color: #ffffff;
+
+        font-family: "Lato", sans-serif;
+        font-size: 40px;
+        font-weight: bold;
+        border: 5px solid #ffffff;
+        border-radius: 10px;
+        text-align: center;
+        margin-left: 20%;
+        margin-right: 20%;
+      }
+      .button {
+        background-color: #253233;
+        display: inline-block;
+        border-radius: 10px;
+        border: solid;
+        color: #ffffff;
+        text-align: center;
+        font-size: 25px;
+        padding: 15px;
+        width: 30%;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 20px;
+      }
+      .icon {
+        display: none;
+        border-radius: 10px;
+        border: solid;
+        color: #ffffff;
+        padding: 25px 30px 15px 50px;
+      }
+
+      .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        font-size: 15px;
+        transition: 0.5s;
+      }
+
+      .button span:after {
+        content: "\00bb";
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+      }
+
+      .button:hover span {
+        padding-right: 25px;
+      }
+
+      .button:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+
+      .container {
+        background-color: #5d5d5d;
+        color: #ffffff;
+        text-align: center;
+        margin: 50px;
+        padding: 15px;
+        border: 20px solid #ffffff;
+        border-style: double;
+        border-radius: 10px;
+      }
+      .smallertext {
+        font-size: 15px;
+        color: white;
+      }
+      .skills {
+        margin-bottom: 50px;
+        position: relative;
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+      }
+      .grid-container {
+        background-color: #5d5d5d;
+        color: #ffffff;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        margin: 50px;
+        padding: 50px 0% 50px 10%;
+        border: 20px solid #ffffff;
+        border-style: double;
+        border-radius: 10px;
+      }
+      .dev-icon {
+        padding: 20px;
+        margin: 10% 5% 10% 5%;
+        background-repeat: no-repeat;
+        background-size: 30px;
+      }
+
+      .projects {
+        margin-bottom: 50px;
+        position: relative;
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+      }
+
+      .zoom {
+        transition: transform 0.2s;
+        background-color: black;
+        height: 90px;
+        width: 90px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+      }
+
+      .zoom:hover {
+        transform: scale(1.3);
+        box-shadow: 0 0 30px #8ea859, 0 0 40px #8ea859, 0 0 70px #8ea859;
+      }
+      .zoom-text {
+        font-size: 15px;
+      }
+      .project-container {
+        background-color: #5d5d5d;
+        color: #ffffff;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        margin: 50px;
+        padding: 50px 5% 30px 5%;
+        border: 20px solid #ffffff;
+        border-style: double;
+        border-radius: 10px;
+      }
+      .relevant_experience {
+        margin-bottom: 50px;
+        position: relative;
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+      }
+      .relevant_experience_container {
+        background-color: #5d5d5d;
+        color: #ffffff;
+        text-align: center;
+        margin: 20px 40px 40px 40px;
+        padding: 15px;
+        border: 20px solid #ffffff;
+        border-style: double;
+        border-radius: 10px;
+      }
+
+      .relevant_experience_title {
+        font-size: 20px;
+        color: #a7c6ff;
+        text-decoration: underline;
+      }
+      .relevant_experience_text {
+        font-size: 15px;
+      }
+    }
+
+    @media screen and (max-width: 700px) {
+      .button {
+        background-color: #253233;
+        display: inline-block;
+        border-radius: 10px;
+        border: solid;
+        color: #ffffff;
+        text-align: center;
+        font-size: 25px;
+        padding: 15px;
+        width: 70%;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 20px;
+      }
+      .grid-container {
+        background-color: #5d5d5d;
+        color: #ffffff;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        margin: 50px;
+        padding: 50px 0% 50px 10%;
+        border: 20px solid #ffffff;
+        border-style: double;
+        border-radius: 10px;
+      }
+      .dev-icon {
+        padding: 20px;
+        margin: 10% 5% 10% 5%;
+        background-repeat: no-repeat;
+        background-size: 20px;
+      }
+      .zoom {
+        transition: transform 0.2s;
+        background-color: black;
+        height: 50px;
+        width: 50px;
+        border-radius: 15px;
+        margin-bottom: 15px;
+      }
+
+      .zoom:hover {
+        transform: scale(1.3);
+        box-shadow: 0 0 30px #8ea859, 0 0 40px #8ea859, 0 0 70px #8ea859;
+      }
+      .zoom-text {
+        font-size: 10px;
+      }
+      .relevant_experience_title {
+        font-size: 15px;
+        color: #a7c6ff;
+        text-decoration: underline;
+      }
+      .relevant_experience_text {
+        font-size: 10 px;
+      }
+    }
+
+    .navig-active {
+      transform: translateX(0%);
+    }
+
+    @keyframes navigFade {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0px);
+      }
+    }
+    .toggle .line1 {
+      transform: rotate(-45deg) translate(-10px, 6px);
+    }
+    .toggle .line2 {
+      opacity: 0;
+    }
+    .toggle .line3 {
+      transform: rotate(45deg) translate(-10px, -6px);
+    }
   </style>
   <body>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#skillsid">Skills</a></li>
-      <li><a href="#projectsid">Projects</a></li>
-      <li><a href="#relevant_experienceid">Relevant Experience</a></li>
-      <mi
-        ><a
+    <nav>
+      <ul class="navig">
+        <li><a href="#">Home</a></li>
+        <li><a href="#skillsid">Skills</a></li>
+        <li><a href="#projectsid">Projects</a></li>
+        <li><a href="#relevant_experienceid">Experience</a></li>
+      </ul>
+      <mi class="nav-links">
+        <a
           class="fa fa-github"
-          style="font-size:35px"
+          style="font-size: 35px;"
           href="https://github.com/DanZinov"
         ></a
-      ></mi>
-      <mi
         ><a
           class="fa fa-linkedin"
-          style="font-size:35px"
+          style="font-size: 35px;"
           href="https://www.linkedin.com/in/daniilzinovyev"
         ></a
-      ></mi>
-      <mi
         ><a
           class="fa fa-facebook"
-          style="font-size:35px"
+          style="font-size: 35px;"
           href="https://www.facebook.com/zinovyevdaniil"
         ></a
-      ></mi>
-      <mi
         ><a
           class="fa fa-instagram"
-          style="font-size:35px"
+          style="font-size: 35px;"
           href="https://www.instagram.com/danielznv/?hl=en"
-        ></a
-      ></mi>
-    </ul>
-    <!--Home-->
-    <section class="home">
-      <h1 class="title">Daniil Zinovyev</h1>
-      <div class="container">
-        <h2>
-          Welcome to my website! I am currently in fourth/final year, pursuing Bachelor
-          of Science degree in Computer, Mathematical and Statistical Sciences
-          at University of Toronto Scarborough.
-        </h2>
-        <h2>
-          My main interest is developing video games for mobile devices and
-          personal computers, using Unity Engine, a variety of programming
-          languages and secondary software.
-        </h2>
-        <h2>Created and published several mobile games on Google Play.</h2>
-        <a
-          class="button"
-          style="background:url(adobe.jpg)"
-          href="https://danzinov.github.io/PersonalWebsite/Resume.pdf"
-          target="_blank"
-          ><span>Resume</span></a
-        >
-        <a
-          class="button"
-          style="background:url(youtube.jpg)"
-          href="https://www.youtube.com/watch?v=GaZ8paevZdo&t="
-          target="_blank"
-          ><span>Coding Tutorials</span></a
-        >
-        <h2></h2>
-        <a
-          class="button"
-          style="background:url(google_play.jpg)"
-          href="https://play.google.com/store/apps/details?id=com.firelandvalley.forgottentreasures"
-          target="_blank"
-          ><span>Forgotten Treasures</span></a
-        >
-        <a
-          class="button"
-          style="background:url(google_play.jpg)"
-          href="https://play.google.com/store/apps/details?id=com.FirelandsValley.MakeLight"
-          target="_blank"
-          ><span>Make Light</span></a
-        >
+        ></a>
+      </mi>
+      <div class="condense">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
       </div>
-    </section>
-    <!-- Skills -->
-    <section class="skills" id="skillsid">
-      <h1 class="title">Skills</h1>
-      <div class="grid-container">
-        <div>
-          <i class="devicon devicon-java-plain-wordmark w3-text-blue"></i>
-        </div>
-        <div><i class="devicon devicon-c-line w3-text-blue"></i></div>
-        <div><i class="devicon devicon-cplusplus-line w3-text-blue"></i></div>
-        <div><i class="devicon devicon-csharp-line w3-text-blue"></i></div>
-        <div><i class="devicon devicon-javascript-plain w3-text-blue"></i></div>
-        <div>
-          <i class="devicon devicon-android-plain-wordmark w3-text-blue"></i>
-        </div>
-        <div>
-          <i class="devicon devicon-python-plain-wordmark w3-text-blue"></i>
-        </div>
-        <div>
-          <i class="devicon devicon-ubuntu-plain-wordmark w3-text-blue"></i>
-        </div>
-        <div>
-          <i class="devicon devicon-git-plain-wordmark w3-text-blue"></i>
-        </div>
-        <div>
-          <i class="devicon devicon-mysql-plain-wordmark w3-text-blue"></i>
-        </div>
-        <div><i class="devicon devicon-linux-plain w3-text-blue"></i></div>
-        <div>
-          <i class="devicon devicon-dot-net-plain-wordmark w3-text-blue"></i>
-        </div>
-        <div>
-          <i class="devicon devicon-html5-plain-wordmark w3-text-blue"></i>
-        </div>
-        <div>
-          <i class="devicon devicon-css3-plain-wordmark w3-text-blue"></i>
-        </div>
-        <div><i class="devicon devicon-photoshop-plain w3-text-blue"></i></div>
-        <div>
-          <i class="devicon devicon-visualstudio-plain w3-text-blue"></i>
-        </div>
-      </div>
-    </section>
-    <!-- Projects -->
-    <section class="projects" id="projectsid">
-      <h1 class="title">Projects</h1>
-      <div class="grid-container">
-        <a
-          style="text-align:center"
-          href="https://github.com/DanZinov/ForgottenTreasures"
-          target="_blank"
+    </nav>
+    <div id="particles-js">
+      <script src="particles.js"></script>
+      <script src="particles/js/app.js"></script>
+    </div>
+
+    <!-- Intro -->
+    <div id="full-page" style="pointer-events: none;">
+      <section class="home" style="pointer-events: none;">
+        <h1 class="title">Daniil Zinovyev</h1>
+        <div
+          class="container"
+          style="
+            background: url(background.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+          "
         >
-          <h2>Forgotten Treasures</h2>
-          <img
-            class="zoom"
-            src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/Forgotten_Treasures_Icon.png"
-            alt="Forgotten Treasures"
-          />
-        </a>
-        <a
-          style="text-align:center"
-          href="https://github.com/DanZinov/SudokuSolver"
-          target="_blank"
+          <div>
+            <h2 class="smallertext">
+              Welcome to my website! I am currently in fourth/final year,
+              pursuing Bachelor of Science degree in Computer, Mathematical and
+              Statistical Sciences at University of Toronto Scarborough.
+            </h2>
+          </div>
+          <h2 class="smallertext">
+            My main interests are developing video games for mobile devices and
+            PCs, as well as using machine learning/data science to create
+            software that would make our lives better and easier.
+          </h2>
+          <h2 class="smallertext">
+            Below you can find my resume as well as my YouTube channel where I
+            create programming tutorials. You can also find my mobile games that
+            I published on Google Play
+          </h2>
+          <a
+            style="pointer-events: all;"
+            class="button"
+            href="https://danzinov.github.io/PersonalWebsite/Resume.pdf"
+            target="_blank"
+            ><span>Resume</span
+            ><a
+              class="icon"
+              style="
+                background: url(adobe.jpg);
+                background-repeat: no-repeat;
+                background-size: 80px 60px;
+              "
+            ></a
+          ></a>
+
+          <a
+            style="pointer-events: all;"
+            class="button"
+            href="https://www.youtube.com/watch?v=GaZ8paevZdo&t="
+            target="_blank"
+            ><span>Coding Tutorials</span
+            ><a
+              class="icon"
+              style="
+                background: url(youtube.jpg);
+                background-repeat: no-repeat;
+                background-size: 80px 60px;
+              "
+            ></a
+          ></a>
+
+          <a
+            style="pointer-events: all;"
+            class="button"
+            href="https://play.google.com/store/apps/details?id=com.firelandvalley.forgottentreasures"
+            target="_blank"
+            ><span>Forgotten Treasures</span
+            ><a
+              class="icon"
+              style="
+                background: url(google_play.jpg);
+                background-repeat: no-repeat;
+                background-size: 80px 60px;
+              "
+            ></a
+          ></a>
+          <a
+            style="pointer-events: all;"
+            class="button"
+            href="https://play.google.com/store/apps/details?id=com.FirelandsValley.MakeLight"
+            target="_blank"
+            ><span>Make Light</span
+            ><a
+              class="icon"
+              style="
+                background: url(google_play.jpg);
+                background-repeat: no-repeat;
+                background-size: 80px 60px;
+              "
+            ></a
+          ></a>
+        </div>
+      </section>
+      <!-- Skills -->
+      <section class="skills" id="skillsid" style="pointer-events: none;">
+        <h1 class="title">Skills</h1>
+        <div
+          style="
+            background: url(background.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+          "
+          class="grid-container"
         >
-          <h2>Sudoku Solver</h2>
-          <img
-            class="zoom"
-            src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/sudoku_icon.jpg"
-            alt="Sudoku Solver"
-          />
-        </a>
-        <a
-          style="text-align:center"
-          href="https://github.com/DanZinov/ArtificialIntelligence"
-          target="_blank"
-        >
-          <h2>Artificial Intelligence</h2>
-          <img
-            class="zoom"
-            src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/AI_icon.png"
-            alt="Artificial Intelligence"
-          />
-        </a>
-        <a
-          style="text-align:center"
-          href="https://github.com/DanZinov/SnakeAndLadders"
-          target="_blank"
-        >
-          <h2>Snakes and Ladders</h2>
-          <img
-            class="zoom"
-            src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/snake_and_ladder.jpg"
-            alt="Snakes and Ladders"
-          />
-        </a>
-        <a
-          style="text-align:center"
-          href="https://github.com/DanZinov/MakeLight"
-          target="_blank"
-        >
-          <h2>Make Light</h2>
-          <img
-            class="zoom"
-            src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/Icon.png"
-            alt="Snakes and Ladders"
-          />
-        </a>
-        <a
-          style="text-align:center"
-          href="https://github.com/DanZinov/TicTacToe"
-          target="_blank"
-        >
-          <h2>Tic Tac Toe</h2>
-          <img
-            class="zoom"
-            src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/tic-tac-toe.jpg"
-            alt="Snakes and Ladders"
-          />
-        </a>
-        <a
-          style="text-align:center"
-          href="https://github.com/DanZinov/RPG"
-          target="_blank"
-        >
-          <h2>RPG game (in progress)</h2>
-          <img
-            class="zoom"
-            src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/rpg.jpg"
-            alt="Snakes and Ladders"
-          />
-        </a>
-        <a style="text-align:center" target="_blank">
-          <h2>Minesweeper (in progress)</h2>
-          <img
-            class="zoom"
-            src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/minesweeper.jpg"
-            alt="Snakes and Ladders"
-          />
-        </a>
-      </div>
-    </section>
-    <!--Relevant Experience -->
-    <div class="relevant_experience" id="relevant_experienceid">
-      <h1 class="title">Relevant Experience</h1>
-      <div class="relevant_experience_container">
-        <b>Machine Learning Engineer, RBC, Toronto (May 2019 – August 2019)</b>
-        <h2>
-          Worked in the Machine Learning team to create various analytics using
-          Python (PySpark, Matplotlib), SQL and JavaScript to visualize the
-          performance of machine learning models.
-        </h2>
-        <h2>
-          Worked with Big Data operated by Hadoop cluster while creating optimal
-          bucketing distribution algorithm for features used by models.
-        </h2>
-        <h2>
-          Analyzed the performance of XGBoost and Random Forest models with
-          various metrics such as ROC Curves, Non-Cumulative Lifts and Confusion
-          Matrices.
-        </h2>
-        <h2>
-          Implemented LIME Explainer for black-box model testing and automated
-          client look-up dashboard.
-        </h2>
-        <b
-          >Coordinator of Computer Science Club, Markham, ON (October 2015 –
-          March 2016)</b
-        >
-        <h2>
-          Tutored programming to members of the Computer Science Club and helped
-          students to develop better problem-solving skills.
-        </h2>
-        <h2>
-          Developed leadership, punctuality and coordination skills during the
-          time of being in the club.
-        </h2>
-        <b
-          >University of Toronto Teacher Assistant (September 2016 – December
-          2017)</b
-        >
-        <h2>
-          Helped students with transition from high school environment to
-          university.
-        </h2>
-        <h2>
-          Tutored a variety of different Mathematical and Computer Science
-          subjects and making sure that the students do not fall behind in
-          studies.
-        </h2>
-        <b>University of Toronto Coding Challenge (September 2018)</b>
-        <h2>
-          Participated in Google coding competition in a team against other
-          University of Toronto students.
-        </h2>
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/python/python-plain.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">Python</div></i
+          >
+
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/java/java-plain.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">Java</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/amazonwebservices/amazonwebservices-original.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">AWS</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/c/c-plain.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text"></div>
+            <div class="dev-icon-text">C</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/cplusplus/cplusplus-plain.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">C++</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/csharp/csharp-plain.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">C#</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/javascript/javascript-plain.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">JavaScript</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/android/android-plain.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">Android</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/ubuntu/ubuntu-plain.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">Ubuntu</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/git/git-plain.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">Git</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/mysql/mysql-plain.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">MySQL</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/linux/linux-plain.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">Linux</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/dot-net/dot-net-plain.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">.NET</div></i
+          >
+
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/html5/html5-plain.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">HTML5</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/css3/css3-plain.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">CSS3</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/photoshop/photoshop-plain.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">PhotoShop</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/visualstudio/visualstudio-plain.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">VisualStudio</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/angularjs/angularjs-plain.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">AngularJS</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/bootstrap/bootstrap-plain.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">Bootstrap</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/django/django-line.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">Django</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/express/express-original.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">Express</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/mongodb/mongodb-plain.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">MongoDB</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/nodejs/nodejs-plain.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">NodeJS</div></i
+          >
+          <i
+            class="dev-icon"
+            style="
+              background-image: url(icons/react/react-original.svg);
+              pointer-events: all;
+            "
+            ><div class="dev-icon-text">React</div></i
+          >
+        </div>
+      </section>
+      <!-- Projects -->
+      <section class="projects" id="projectsid" style="pointer-events: none;">
+        <h1 class="title">Projects</h1>
+        <div class="project-container">
+          <a
+            style="text-decoration: none; text-align: center;"
+            href="https://github.com/DanZinov/ForgottenTreasures"
+            target="_blank"
+          >
+            <h2 class="zoom-text">
+              Forgotten Treasures
+            </h2>
+            <img
+              style="pointer-events: all;"
+              class="zoom"
+              src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/Forgotten_Treasures_Icon.png"
+              alt="Forgotten Treasures"
+            />
+          </a>
+          <a
+            style="text-decoration: none; text-align: center;"
+            href="https://github.com/DanZinov/SudokuSolver"
+            target="_blank"
+          >
+            <h2 class="zoom-text">Sudoku Solver</h2>
+            <img
+              style="pointer-events: all;"
+              class="zoom"
+              src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/sudoku_icon.jpg"
+              alt="Sudoku Solver"
+            />
+          </a>
+          <a
+            style="text-decoration: none; text-align: center;"
+            href="https://github.com/DanZinov/ArtificialIntelligence"
+            target="_blank"
+          >
+            <h2 class="zoom-text">Artificial Intelligence</h2>
+            <img
+              style="pointer-events: all;"
+              class="zoom"
+              src="machine learning.png"
+              alt="Artificial Intelligence"
+            />
+          </a>
+          <a
+            style="text-decoration: none; text-align: center;"
+            href="https://github.com/DanZinov/SnakeAndLadders"
+            target="_blank"
+          >
+            <h2 class="zoom-text">Snakes and Ladders</h2>
+            <img
+              style="pointer-events: all;"
+              class="zoom"
+              src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/snake_and_ladder.jpg"
+              alt="Snakes and Ladders"
+            />
+          </a>
+          <a
+            style="text-decoration: none; text-align: center;"
+            href="https://github.com/DanZinov/MakeLight"
+            target="_blank"
+          >
+            <h2 class="zoom-text">Make Light</h2>
+            <img
+              style="pointer-events: all;"
+              class="zoom"
+              src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/Icon.png"
+              alt="Make Light"
+            />
+          </a>
+          <a
+            style="text-decoration: none; text-align: center;"
+            href="https://github.com/DanZinov/TicTacToe"
+            target="_blank"
+          >
+            <h2 class="zoom-text">Tic Tac Toe</h2>
+            <img
+              style="pointer-events: all;"
+              class="zoom"
+              src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/tic-tac-toe.jpg"
+              alt="Tic Tac Toe"
+            />
+          </a>
+          <a
+            style="text-decoration: none; text-align: center;"
+            href="https://github.com/DanZinov/Minesweeper"
+            target="_blank"
+          >
+            <h2 class="zoom-text">Minesweeper</h2>
+            <img
+              style="pointer-events: all;"
+              class="zoom"
+              src="minesweeper.png"
+              alt="Minesweeper"
+            />
+          </a>
+          <a
+            style="text-decoration: none; text-align: center;"
+            href="https://github.com/DanZinov/RPG"
+            target="_blank"
+          >
+            <h2 class="zoom-text">RPG game</h2>
+            <img
+              style="pointer-events: all;"
+              class="zoom"
+              src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/rpg.jpg"
+              alt="RPG game"
+            />
+          </a>
+          <a
+            style="text-decoration: none; text-align: center;"
+            href="https://github.com/DanZinov/Course-Scheduler"
+            target="_blank"
+          >
+            <h2 class="zoom-text">Course Scheduler</h2>
+            <img
+              style="pointer-events: all;"
+              class="zoom"
+              src="courses.png"
+              alt="Course Scheduler"
+            />
+          </a>
+          <a
+            style="text-decoration: none; text-align: center;"
+            href="https://github.com/DanZinov/Mandelbrot-Set"
+            target="_blank"
+          >
+            <h2 class="zoom-text">Mandelbrot Set</h2>
+            <img
+              style="pointer-events: all;"
+              class="zoom"
+              src="Mandelbrot Set.jpg"
+              alt="Mandelbrot Set"
+            />
+          </a>
+          <a
+            style="text-decoration: none; text-align: center;"
+            href="https://github.com/DanZinov/Real-Time-Image-Recognition"
+            target="_blank"
+          >
+            <h2 class="zoom-text">Image Recognition</h2>
+            <img
+              style="pointer-events: all;"
+              class="zoom"
+              src="Pattern-Recognition.jpg"
+              alt="Image Recognition"
+            />
+          </a>
+          <a
+            style="text-decoration: none; text-align: center;"
+            href="https://github.com/DanZinov/CryoBot"
+            target="_blank"
+          >
+            <h2 class="zoom-text">CryoBot</h2>
+            <img
+              style="pointer-events: all;"
+              class="zoom"
+              src="bot.jpg"
+              alt="CryoBot"
+            />
+          </a>
+        </div>
+      </section>
+      <!--Relevant Experience -->
+      <div
+        class="relevant_experience"
+        id="relevant_experienceid"
+        style="pointer-events: none;"
+      >
+        <h1 class="title">Relevant Experience</h1>
+        <div class="relevant_experience_container">
+          <b class="relevant_experience_title"
+            >Machine Learning Engineer, RBC, Toronto (May 2019 – August 2019)</b
+          >
+          <h2 class="relevant_experience_text">
+            Worked in the Machine Learning team to create various analytics
+            using Python (PySpark, Matplotlib), SQL and JavaScript to visualize
+            the performance of machine learning models
+          </h2>
+          <h2 class="relevant_experience_text">
+            Worked with Big Data operated by Hadoop cluster while creating
+            optimal bucketing distribution algorithm for features used by models
+          </h2>
+          <h2 class="relevant_experience_text">
+            Analyzed the performance of XGBoost and Random Forest models with
+            various metrics such as ROC Curves, Non-Cumulative Lifts and
+            Confusion Matrices.
+          </h2>
+          <h2 class="relevant_experience_text">
+            Implemented LIME Explainer for black-box model testing and automated
+            client look-up dashboard.
+          </h2>
+          <b class="relevant_experience_title"
+            >Coordinator of Computer Science Club, Markham, ON (October 2015 –
+            March 2016)</b
+          >
+          <h2 class="relevant_experience_text">
+            Tutored programming to members of the Computer Science Club and
+            helped students to develop better problem-solving skills.
+          </h2>
+          <h2 class="relevant_experience_text">
+            Developed leadership, punctuality and coordination skills during the
+            time of being in the club.
+          </h2>
+          <b class="relevant_experience_title"
+            >University of Toronto Teacher Assistant (September 2016 – December
+            2017)</b
+          >
+          <h2 class="relevant_experience_text">
+            Helped students with transition from high school environment to
+            university.
+          </h2>
+          <h2 class="relevant_experience_text">
+            Tutored a variety of different Mathematical and Computer Science
+            subjects and making sure that the students do not fall behind in
+            studies.
+          </h2>
+          <b class="relevant_experience_title"
+            >University of Toronto Coding Challenge (September 2018)</b
+          >
+          <h2 class="relevant_experience_text">
+            Participated in Google coding competition in a team against other
+            University of Toronto students.
+          </h2>
+        </div>
       </div>
     </div>
+
+    <script>
+      document.getElementById("particles-js").style.height =
+        document.getElementById("full-page").scrollHeight.toString() + "px";
+      window.addEventListener("resize", function () {
+        document.getElementById("particles-js").style.height =
+          document.getElementById("full-page").scrollHeight.toString() + "px";
+      });
+      window.dispatchEvent(new Event("resize"));
+      const navSlide = () => {
+        const condense = document.querySelector(".condense");
+        const nav = document.querySelector(".navig");
+        const navig = document.querySelectorAll(".navig li");
+
+        condense.addEventListener("click", () => {
+          nav.classList.toggle("navig-active");
+
+          navig.forEach((link, index) => {
+            if (link.style.animation) {
+              link.style.animation = "";
+            } else {
+              link.style.animation = `navigFade 1s ease forwards ${
+                index / 5 + 0.3
+              }s`;
+            }
+          });
+          condense.classList.toggle("toggle");
+        });
+        navig.forEach((link) => {
+          link.addEventListener("click", () => {
+            nav.classList.toggle("navig-active");
+            condense.classList.toggle("toggle");
+            navig.forEach((link) => {
+              link.style.animation = "";
+            });
+          });
+        });
+      };
+      navSlide();
+    </script>
   </body>
 </html>
