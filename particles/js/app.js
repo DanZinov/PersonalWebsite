@@ -42,7 +42,7 @@ particlesJS(
         },
       },
       opacity: {
-        value: 0.5,
+        value: 1,
         random: false,
         anim: {
           enable: false,
@@ -65,12 +65,12 @@ particlesJS(
         enable: true,
         distance: 150,
         color: "#ffffff",
-        opacity: 0.4,
+        opacity: 0.8,
         width: 1,
       },
       move: {
         enable: true,
-        speed: 8,
+        speed: 5,
         direction: "none",
         random: false,
         straight: false,
