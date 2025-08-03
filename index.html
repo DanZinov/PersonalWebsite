@@ -1,658 +1,470 @@
 <!DOCTYPE html>
-<html>
-    <title>Daniil Zinovyev</title>
+<html lang="en">
+<head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Lato"
-    />
-    <link
-        rel="icon"
-        href="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/iconweb.png"
-    />
-    <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Montserrat"
-    />
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link
-        rel="stylesheet"
-        href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Daniil Zinovyev - Computer Science Graduate, Data Scientist, and Game Developer" />
+    <title>Daniil Zinovyev - Portfolio</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="icon" href="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/iconweb.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css" />
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="./style.css" />
+</head>
     <body>
-        <nav>
-            <ul class="navig">
-                <li><a href="#">Home</a></li>
-                <li><a href="#skillsid">Skills</a></li>
-                <li><a href="#projectsid">Projects</a></li>
-                <li><a href="#relevant_experienceid">Experience</a></li>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">DZ</a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experience" class="nav-link">Experience</a>
+                </li>
             </ul>
-            <mi class="nav-links">
-                <a
-                    class="fa fa-github"
-                    style="font-size: 35px"
-                    href="https://github.com/DanZinov"
-                ></a>
-                <a
-                    class="fa fa-linkedin"
-                    style="font-size: 35px"
-                    href="https://www.linkedin.com/in/daniilzinovyev"
-                ></a>
-                <a
-                    class="fa fa-instagram"
-                    style="font-size: 35px"
-                    href="https://www.instagram.com/danielznv/?hl=en"
-                ></a>
-            </mi>
-            <div class="condense">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
+            
+            <div class="nav-social">
+                <a href="https://github.com/DanZinov" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/daniilzinovyev" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/danielznv/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
             </div>
-        </nav>
-        <div id="particles-js">
-            <script src="particles.js"></script>
-            <script src="particles/js/app.js"></script>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
+    </nav>
 
-        <!-- Intro -->
-        <div id="full-page" style="pointer-events: none">
-            <section class="home" style="pointer-events: none">
-                <h1 class="title">Daniil Zinovyev</h1>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <!-- Main Content -->
+    <main id="full-page">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
                 <div class="container">
-                    <div>
-                        <h2 class="smallertext">
-                            Welcome to my website! I recently graduated with a
-                            Bachelor of Science Degree in Computer, Mathematical
-                            and Statistical Sciences at University of Toronto
-                            Scarborough.
-                        </h2>
+                <div class="hero-content">
+                    <h1 class="hero-title">Daniil Zinovyev</h1>
+                    <p class="hero-subtitle">Software Development Engineer II at Amazon</p>
+                    <p class="hero-description">
+                        Welcome to my portfolio! I am a Software Development Engineer II at Amazon, where I build large-scale software solutions and collaborate with global customers. I graduated from the University of Toronto Scarborough with a Bachelor of Science Degree in Computer, Mathematical, and Statistical Sciences.
+                    </p>
+                    <p class="hero-description">
+                        I specialize in full-stack development with AWS cloud services, including Lambda, DynamoDB, S3, SNS, and Step Functions. My expertise spans TypeScript, Java, Python, Angular, and React, allowing me to create robust, scalable applications that solve complex business challenges.
+                    </p>
+                    <p class="hero-description">
+                        Beyond my professional work, I enjoy developing mobile and PC games as a creative outlet. Below you'll find my resume, mobile games published on Google Play, and other projects that showcase my technical skills and passion for software development.
+                    </p>
+                    
+                    <div class="hero-buttons">
+                        <a href="https://danzinov.github.io/PersonalWebsite/Resume.pdf" 
+                        target="_blank"
+                           class="btn btn-primary">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Resume</span>
+                        </a>
+                        
+                        <a href="https://play.google.com/store/apps/details?id=com.firelandvalley.forgottentreasures" 
+                        target="_blank"
+                           class="btn btn-secondary">
+                            <i class="fab fa-google-play"></i>
+                            <span>Forgotten Treasures</span>
+                        </a>
+                        
+                        <a href="https://play.google.com/store/apps/details?id=com.FirelandsValley.MakeLight" 
+                        target="_blank"
+                           class="btn btn-secondary">
+                            <i class="fab fa-google-play"></i>
+                            <span>Make Light</span>
+                        </a>
                     </div>
-                    <h2 class="smallertext">
-                        My main interests is using and studying Data Science to
-                        create software that analyzes and improves the
-                        performance of machine learning models, as well as
-                        developing mobile and PC games as a hobby.
-                    </h2>
-                    <h2 class="smallertext">
-                        Below you can find my resume as well as my YouTube
-                        channel where I create programming tutorials. You can
-                        also find my mobile games that I published on Google
-                        Play and other various projects.
-                    </h2>
-                    <a
-                        style="pointer-events: all"
-                        class="button title"
-                        href="https://danzinov.github.io/PersonalWebsite/Resume.pdf"
-                        target="_blank"
-                        ><span>Resume</span
-                        ><a
-                            class="icon"
-                            style="
-                                background: url(adobe.jpg);
-                                background-repeat: no-repeat;
-                                background-size: 80px 60px;
-                            "
-                        ></a
-                    ></a>
-
-                    <a
-                        style="pointer-events: all"
-                        class="button title"
-                        href="https://www.youtube.com/watch?v=GaZ8paevZdo&t="
-                        target="_blank"
-                        ><span>Coding Tutorials</span
-                        ><a
-                            class="icon"
-                            style="
-                                background: url(youtube.jpg);
-                                background-repeat: no-repeat;
-                                background-size: 80px 60px;
-                            "
-                        ></a
-                    ></a>
-
-                    <a
-                        style="pointer-events: all"
-                        class="button title"
-                        href="https://play.google.com/store/apps/details?id=com.firelandvalley.forgottentreasures"
-                        target="_blank"
-                        ><span>Forgotten Treasures</span
-                        ><a
-                            class="icon"
-                            style="
-                                background: url(google_play.jpg);
-                                background-repeat: no-repeat;
-                                background-size: 80px 60px;
-                            "
-                        ></a
-                    ></a>
-                    <a
-                        style="pointer-events: all"
-                        class="button title"
-                        href="https://play.google.com/store/apps/details?id=com.FirelandsValley.MakeLight"
-                        target="_blank"
-                        ><span>Make Light</span
-                        ><a
-                            class="icon"
-                            style="
-                                background: url(google_play.jpg);
-                                background-repeat: no-repeat;
-                                background-size: 80px 60px;
-                            "
-                        ></a
-                    ></a>
+                </div>
                 </div>
             </section>
-            <!-- Skills -->
-            <section class="skills" id="skillsid" style="pointer-events: none">
-                <h1 class="title">Skills</h1>
-                <div class="grid-container"
-                >
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/python/python-plain.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">Python</div>
-                    </i>
 
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/java/java-plain.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">Java</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/amazonwebservices/amazonwebservices-original.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">AWS</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/c/c-plain.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text"></div>
-                        <div class="dev-icon-text">C</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/cplusplus/cplusplus-plain.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">C++</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/csharp/csharp-plain.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">C#</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/javascript/javascript-plain.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">JavaScript</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/android/android-plain.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">Android</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/ubuntu/ubuntu-plain.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">Ubuntu</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/git/git-plain.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">Git</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/mysql/mysql-plain.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">MySQL</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/linux/linux-plain.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">Linux</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/dot-net/dot-net-plain.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">.NET</div>
-                    </i>
-
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/html5/html5-plain.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">HTML5</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/css3/css3-plain.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">CSS3</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/photoshop/photoshop-plain.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">PhotoShop</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/visualstudio/visualstudio-plain.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">VisualStudio</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/angularjs/angularjs-plain.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">AngularJS</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/bootstrap/bootstrap-plain.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">Bootstrap</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/django/django-line.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">Django</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/express/express-original.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">Express</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/mongodb/mongodb-plain.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">MongoDB</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/nodejs/nodejs-plain.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">NodeJS</div>
-                    </i>
-                    <i
-                        class="dev-icon"
-                        style="
-                            background-image: url(icons/react/react-original.svg);
-                            pointer-events: all;
-                        "
-                    >
-                        <div class="dev-icon-text">React</div>
-                    </i>
+        <!-- Skills Section -->
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2 class="section-title">Skills & Technologies</h2>
+                <div class="skills-grid">
+                    <!-- Programming Languages -->
+                    <div class="skill-item" data-skill="TypeScript">
+                        <i class="devicon-typescript-plain"></i>
+                        <span>TypeScript</span>
+                    </div>
+                    <div class="skill-item" data-skill="JavaScript">
+                        <i class="devicon-javascript-plain"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="skill-item" data-skill="Python">
+                        <i class="devicon-python-plain"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-item" data-skill="Java">
+                        <i class="devicon-java-plain"></i>
+                        <span>Java</span>
+                    </div>
+                    <div class="skill-item" data-skill="C#">
+                        <i class="devicon-csharp-plain"></i>
+                        <span>C#</span>
+                    </div>
+                    
+                    <!-- Cloud & DevOps -->
+                    <div class="skill-item" data-skill="AWS">
+                        <i class="devicon-amazonwebservices-original"></i>
+                        <span>AWS</span>
+                    </div>
+                    <div class="skill-item" data-skill="Lambda">
+                        <i class="fas fa-cloud"></i>
+                        <span>Lambda</span>
+                    </div>
+                    <div class="skill-item" data-skill="DynamoDB">
+                        <i class="fas fa-database"></i>
+                        <span>DynamoDB</span>
+                    </div>
+                    <div class="skill-item" data-skill="S3">
+                        <i class="fas fa-hdd"></i>
+                        <span>S3</span>
+                    </div>
+                    <div class="skill-item" data-skill="Git">
+                        <i class="devicon-git-plain"></i>
+                        <span>Git</span>
+                    </div>
+                    <div class="skill-item" data-skill="Linux">
+                        <i class="devicon-linux-plain"></i>
+                        <span>Linux</span>
+                    </div>
+                    
+                    <!-- Frontend -->
+                    <div class="skill-item" data-skill="React">
+                        <i class="devicon-react-original"></i>
+                        <span>React</span>
+                    </div>
+                    <div class="skill-item" data-skill="Angular">
+                        <i class="devicon-angularjs-plain"></i>
+                        <span>Angular</span>
+                    </div>
+                    <div class="skill-item" data-skill="HTML5">
+                        <i class="devicon-html5-plain"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="skill-item" data-skill="CSS3">
+                        <i class="devicon-css3-plain"></i>
+                        <span>CSS3</span>
+                    </div>
+                    
+                    <!-- Backend & Databases -->
+                    <div class="skill-item" data-skill="Node.js">
+                        <i class="devicon-nodejs-plain"></i>
+                        <span>Node.js</span>
+                    </div>
+                    <div class="skill-item" data-skill="Express">
+                        <i class="devicon-express-original"></i>
+                        <span>Express</span>
+                    </div>
+                    <div class="skill-item" data-skill="MongoDB">
+                        <i class="devicon-mongodb-plain"></i>
+                        <span>MongoDB</span>
+                    </div>
+                    <div class="skill-item" data-skill="MySQL">
+                        <i class="devicon-mysql-plain"></i>
+                        <span>MySQL</span>
+                    </div>
+                    
+                    <!-- Mobile & Tools -->
+                    <div class="skill-item" data-skill="Android">
+                        <i class="devicon-android-plain"></i>
+                        <span>Android</span>
+                    </div>
+                    <div class="skill-item" data-skill="Photoshop">
+                        <i class="devicon-photoshop-plain"></i>
+                        <span>Photoshop</span>
+                    </div>
+                </div>
                 </div>
             </section>
-            <!-- Projects -->
-            <section
-                class="projects"
-                id="projectsid"
-                style="pointer-events: none"
-            >
-                <h1 class="title">Projects</h1>
-                <div class="project-container">
-                    <a
-                        style="text-decoration: none; text-align: center"
-                        href="https://github.com/DanZinov/ForgottenTreasures"
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <a href="https://github.com/DanZinov/ForgottenTreasures" 
                         target="_blank"
-                    >
-                        <h2 class="zoom-text">Forgotten Treasures</h2>
-                        <img
-                            style="pointer-events: all"
-                            class="zoom"
-                            src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/Forgotten_Treasures_Icon.png"
-                            alt="Forgotten Treasures"
-                        />
+                       class="project-card">
+                        <div class="project-image">
+                            <img src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/Forgotten_Treasures_Icon.png" 
+                                 alt="Forgotten Treasures" />
+                        </div>
+                        <h3 class="project-title">Forgotten Treasures</h3>
                     </a>
-                    <a
-                        style="text-decoration: none; text-align: center"
-                        href="https://github.com/DanZinov/SudokuSolver"
+                    
+                    <a href="https://github.com/DanZinov/SudokuSolver" 
                         target="_blank"
-                    >
-                        <h2 class="zoom-text">Sudoku Solver</h2>
-                        <img
-                            style="pointer-events: all"
-                            class="zoom"
-                            src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/sudoku_icon.jpg"
-                            alt="Sudoku Solver"
-                        />
+                       class="project-card">
+                        <div class="project-image">
+                            <img src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/sudoku_icon.jpg" 
+                                 alt="Sudoku Solver" />
+                        </div>
+                        <h3 class="project-title">Sudoku Solver</h3>
                     </a>
-                    <a
-                        style="text-decoration: none; text-align: center"
-                        href="https://github.com/DanZinov/ArtificialIntelligence"
+                    
+                    <a href="https://github.com/DanZinov/ArtificialIntelligence" 
                         target="_blank"
-                    >
-                        <h2 class="zoom-text">Artificial Intelligence</h2>
-                        <img
-                            style="pointer-events: all"
-                            class="zoom"
-                            src="machine learning.png"
-                            alt="Artificial Intelligence"
-                        />
+                       class="project-card">
+                        <div class="project-image">
+                            <img src="images/machine learning.png" 
+                                 alt="Artificial Intelligence" />
+                        </div>
+                        <h3 class="project-title">Artificial Intelligence</h3>
                     </a>
-                    <a
-                        style="text-decoration: none; text-align: center"
-                        href="https://github.com/DanZinov/SnakeAndLadders"
+                    
+                    <a href="https://github.com/DanZinov/SnakeAndLadders" 
                         target="_blank"
-                    >
-                        <h2 class="zoom-text">Snakes and Ladders</h2>
-                        <img
-                            style="pointer-events: all"
-                            class="zoom"
-                            src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/snake_and_ladder.jpg"
-                            alt="Snakes and Ladders"
-                        />
+                       class="project-card">
+                        <div class="project-image">
+                            <img src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/snake_and_ladder.jpg" 
+                                 alt="Snakes and Ladders" />
+                        </div>
+                        <h3 class="project-title">Snakes and Ladders</h3>
                     </a>
-                    <a
-                        style="text-decoration: none; text-align: center"
-                        href="https://github.com/DanZinov/MakeLight"
+                    
+                    <a href="https://github.com/DanZinov/MakeLight" 
                         target="_blank"
-                    >
-                        <h2 class="zoom-text">Make Light</h2>
-                        <img
-                            style="pointer-events: all"
-                            class="zoom"
-                            src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/Icon.png"
-                            alt="Make Light"
-                        />
+                       class="project-card">
+                        <div class="project-image">
+                            <img src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/Icon.png" 
+                                 alt="Make Light" />
+                        </div>
+                        <h3 class="project-title">Make Light</h3>
                     </a>
-                    <a
-                        style="text-decoration: none; text-align: center"
-                        href="https://github.com/DanZinov/TicTacToe"
+                    
+                    <a href="https://github.com/DanZinov/TicTacToe" 
                         target="_blank"
-                    >
-                        <h2 class="zoom-text">Tic Tac Toe</h2>
-                        <img
-                            style="pointer-events: all"
-                            class="zoom"
-                            src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/tic-tac-toe.jpg"
-                            alt="Tic Tac Toe"
-                        />
+                       class="project-card">
+                        <div class="project-image">
+                            <img src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/tic-tac-toe.jpg" 
+                                 alt="Tic Tac Toe" />
+                        </div>
+                        <h3 class="project-title">Tic Tac Toe</h3>
                     </a>
-                    <a
-                        style="text-decoration: none; text-align: center"
-                        href="https://github.com/DanZinov/Minesweeper"
+                    
+                    <a href="https://github.com/DanZinov/Minesweeper" 
                         target="_blank"
-                    >
-                        <h2 class="zoom-text">Minesweeper</h2>
-                        <img
-                            style="pointer-events: all"
-                            class="zoom"
-                            src="minesweeper.png"
-                            alt="Minesweeper"
-                        />
+                       class="project-card">
+                        <div class="project-image">
+                            <img src="images/minesweeper.png" 
+                                 alt="Minesweeper" />
+                        </div>
+                        <h3 class="project-title">Minesweeper</h3>
                     </a>
-                    <a
-                        style="text-decoration: none; text-align: center"
-                        href="https://github.com/DanZinov/RPG"
+                    
+                    <a href="https://github.com/DanZinov/RPG" 
                         target="_blank"
-                    >
-                        <h2 class="zoom-text">RPG game</h2>
-                        <img
-                            style="pointer-events: all"
-                            class="zoom"
-                            src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/rpg.jpg"
-                            alt="RPG game"
-                        />
+                       class="project-card">
+                        <div class="project-image">
+                            <img src="https://raw.githubusercontent.com/DanZinov/PersonalWebsite/gh-pages/rpg.jpg" 
+                                 alt="RPG game" />
+                        </div>
+                        <h3 class="project-title">RPG Game</h3>
                     </a>
-                    <a
-                        style="text-decoration: none; text-align: center"
-                        href="https://github.com/DanZinov/Course-Scheduler"
+                    
+                    <a href="https://github.com/DanZinov/Course-Scheduler" 
                         target="_blank"
-                    >
-                        <h2 class="zoom-text">Course Scheduler</h2>
-                        <img
-                            style="pointer-events: all"
-                            class="zoom"
-                            src="courses.png"
-                            alt="Course Scheduler"
-                        />
+                       class="project-card">
+                        <div class="project-image">
+                            <img src="images/courses.png" 
+                                 alt="Course Scheduler" />
+                        </div>
+                        <h3 class="project-title">Course Scheduler</h3>
                     </a>
-                    <a
-                        style="text-decoration: none; text-align: center"
-                        href="https://github.com/DanZinov/Mandelbrot-Set"
+                    
+                    <a href="https://github.com/DanZinov/Mandelbrot-Set" 
                         target="_blank"
-                    >
-                        <h2 class="zoom-text">Mandelbrot Set</h2>
-                        <img
-                            style="pointer-events: all"
-                            class="zoom"
-                            src="Mandelbrot Set.jpg"
-                            alt="Mandelbrot Set"
-                        />
+                       class="project-card">
+                        <div class="project-image">
+                            <img src="images/Mandelbrot Set.jpg" 
+                                 alt="Mandelbrot Set" />
+                        </div>
+                        <h3 class="project-title">Mandelbrot Set</h3>
                     </a>
-                    <a
-                        style="text-decoration: none; text-align: center"
-                        href="https://github.com/DanZinov/Real-Time-Image-Recognition"
+                    
+                    <a href="https://github.com/DanZinov/Real-Time-Image-Recognition" 
                         target="_blank"
-                    >
-                        <h2 class="zoom-text">Image Recognition</h2>
-                        <img
-                            style="pointer-events: all"
-                            class="zoom"
-                            src="Pattern-Recognition.jpg"
-                            alt="Image Recognition"
-                        />
+                       class="project-card">
+                        <div class="project-image">
+                            <img src="images/Pattern-Recognition.jpg" 
+                                 alt="Image Recognition" />
+                        </div>
+                        <h3 class="project-title">Image Recognition</h3>
                     </a>
-                    <a
-                        style="text-decoration: none; text-align: center"
-                        href="https://github.com/DanZinov/CryoBot"
+                    
+                    <a href="https://github.com/DanZinov/CryoBot" 
                         target="_blank"
-                    >
-                        <h2 class="zoom-text">CryoBot</h2>
-                        <img
-                            style="pointer-events: all"
-                            class="zoom"
-                            src="bot.jpg"
-                            alt="CryoBot"
-                        />
+                       class="project-card">
+                        <div class="project-image">
+                            <img src="images/bot.jpg" 
+                                 alt="CryoBot" />
+                        </div>
+                        <h3 class="project-title">CryoBot</h3>
                     </a>
                 </div>
+                </div>
             </section>
-            <!--Relevant Experience -->
-            <div
-                class="relevant_experience"
-                id="relevant_experienceid"
-                style="pointer-events: none"
-            >
-                <h1 class="title">Relevant Experience</h1>
-                <div class="relevant_experience_container">
-                    <b class="relevant_experience_title"
-                        >Machine Learning Engineer, RBC, Toronto (May 2019 –
-                        August 2019)</b
-                    >
-                    <h2 class="relevant_experience_text">
-                        Worked in the Machine Learning team to create various
-                        analytics using Python (PySpark, Matplotlib), SQL and
-                        JavaScript to visualize the performance of machine
-                        learning models
-                    </h2>
-                    <h2 class="relevant_experience_text">
-                        Worked with Big Data operated by Hadoop cluster while
-                        creating optimal bucketing distribution algorithm for
-                        features used by models
-                    </h2>
-                    <h2 class="relevant_experience_text">
-                        Analyzed the performance of XGBoost and Random Forest
-                        models with various metrics such as ROC Curves,
-                        Non-Cumulative Lifts and Confusion Matrices.
-                    </h2>
-                    <h2 class="relevant_experience_text">
-                        Implemented LIME Explainer for black-box model testing
-                        and automated client look-up dashboard.
-                    </h2>
-                    <b class="relevant_experience_title"
-                        >Coordinator of Computer Science Club, Markham, ON
-                        (October 2015 – March 2016)</b
-                    >
-                    <h2 class="relevant_experience_text">
-                        Tutored programming to members of the Computer Science
-                        Club and helped students to develop better
-                        problem-solving skills.
-                    </h2>
-                    <h2 class="relevant_experience_text">
-                        Developed leadership, punctuality and coordination
-                        skills during the time of being in the club.
-                    </h2>
-                    <b class="relevant_experience_title"
-                        >University of Toronto Teacher Assistant (September 2016
-                        – December 2017)</b
-                    >
-                    <h2 class="relevant_experience_text">
-                        Helped students with transition from high school
-                        environment to university.
-                    </h2>
-                    <h2 class="relevant_experience_text">
-                        Tutored a variety of different Mathematical and Computer
-                        Science subjects and making sure that the students do
-                        not fall behind in studies.
-                    </h2>
-                    <b class="relevant_experience_title"
-                        >University of Toronto Coding Challenge (September
-                        2018)</b
-                    >
-                    <h2 class="relevant_experience_text">
-                        Participated in Google coding competition in a team
-                        against other University of Toronto students.
-                    </h2>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience">
+            <div class="container">
+                <h2 class="section-title">Relevant Experience</h2>
+                <div class="experience-timeline">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="experience-title">Software Development Engineer II</h3>
+                            <p class="experience-company">Amazon</p>
+                            <p class="experience-period">March 2021 - Present</p>
+                        </div>
+                        <div class="experience-content">
+                            <ul>
+                                <li>Developed large-scale software solutions in a fast-paced agile environment, collaborating with global customers to create tailored applications that addressed their specific needs</li>
+                                <li>Utilized various AWS services, including Lambda, DynamoDB, S3, SNS, and Step Functions, to deliver robust and scalable applications</li>
+                                <li>Employed programming languages such as TypeScript (NodeJS), Java, and Python to build diverse software projects</li>
+                                <li>Leveraged the Angular framework for creating feature-rich and responsive web applications</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="experience-title">Machine Learning Engineer</h3>
+                            <p class="experience-company">RBC, Toronto</p>
+                            <p class="experience-period">May 2019 – August 2019</p>
+                        </div>
+                        <div class="experience-content">
+                            <ul>
+                                <li>Collaborated with the Machine Learning team to develop diverse analytics using Python (PySpark, Matplotlib), SQL, and JavaScript, effectively visualizing the performance of machine learning models</li>
+                                <li>Created an optimized feature bucketing distribution algorithms for models while working with Big Data managed by a Hadoop cluster, enhancing overall efficiency</li>
+                                <li>Conducted comprehensive performance analysis of XGBoost and Random Forest models, utilizing metrics such as ROC Curves, Non-Cumulative Lifts, and Confusion Matrices to ensure accurate evaluation</li>
+                                <li>Implemented the LIME Explainer for black-box model testing, streamlining the process and automating client look-up dashboards for improved user experience</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="experience-title">Coordinator of Computer Science Club</h3>
+                            <p class="experience-company">Markham, ON</p>
+                            <p class="experience-period">October 2015 – March 2016</p>
+                        </div>
+                        <div class="experience-content">
+                            <ul>
+                                <li>Provided programming tutoring to club members, fostering the development of enhanced problem-solving skills and a deeper understanding of computer science concepts</li>
+                                <li>Cultivated leadership, punctuality, and coordination skills through effective management and organization of club activities and events</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="experience-title">University of Toronto Teacher Assistant</h3>
+                            <p class="experience-company">University of Toronto</p>
+                            <p class="experience-period">September 2016 – December 2017</p>
+                        </div>
+                        <div class="experience-content">
+                            <ul>
+                                <li>Facilitated a smooth transition for students from high school to university, providing guidance and support to navigate the new academic environment</li>
+                                <li>Delivered tutoring in various Mathematics and Computer Science subjects, ensuring students remained on track with their coursework and preventing them from falling behind academically</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="experience-title">University of Toronto Coding Challenge</h3>
+                            <p class="experience-company">University of Toronto</p>
+                            <p class="experience-period">September 2018</p>
+                        </div>
+                        <div class="experience-content">
+                            <ul>
+                                <li>Participated in Google coding competition in a team against other University of Toronto students</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+    </main>
 
+    <!-- Scripts -->
+    <script src="particles.js"></script>
+    <script src="particles/js/app.js"></script>
         <script>
-            document.getElementById("particles-js").style.height =
-                document.getElementById("full-page").scrollHeight.toString() +
-                "px";
-            window.addEventListener("resize", function () {
-                document.getElementById("particles-js").style.height =
-                    document
-                        .getElementById("full-page")
-                        .scrollHeight.toString() + "px";
+
+        // Mobile navigation
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
-            window.dispatchEvent(new Event("resize"));
-            const navSlide = () => {
-                const condense = document.querySelector(".condense");
-                const nav = document.querySelector(".navig");
-                const navig = document.querySelectorAll(".navig li");
+        });
 
-                condense.addEventListener("click", () => {
-                    nav.classList.toggle("navig-active");
-
-                    navig.forEach((link, index) => {
-                        if (link.style.animation) {
-                            link.style.animation = "";
-                        } else {
-                            link.style.animation = `navigFade 1s ease forwards ${
-                                index / 5 + 0.3
-                            }s`;
-                        }
-                    });
-                    condense.classList.toggle("toggle");
-                });
-                navig.forEach((link) => {
-                    link.addEventListener("click", () => {
-                        nav.classList.toggle("navig-active");
-                        condense.classList.toggle("toggle");
-                        navig.forEach((link) => {
-                            link.style.animation = "";
-                        });
+        // Skill items hover effect
+        document.querySelectorAll('.skill-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.05)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
                     });
                 });
-            };
-            navSlide();
         </script>
     </body>
 </html>
