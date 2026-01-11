@@ -42,7 +42,12 @@ html {
 
 body {
     font-family: var(--font-primary);
-    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+    background:
+        linear-gradient(rgba(10, 10, 10, 0.97), rgba(5, 5, 5, 0.97)),
+        linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 50px 50px, 50px 50px;
+    background-color: var(--dark-bg);
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
@@ -57,6 +62,37 @@ body {
     height: 100%;
     z-index: -1;
     background: transparent;
+    pointer-events: none;
+}
+
+/* Subtle Gradient Overlay for Sections */
+.skills,
+.projects,
+.experience {
+    position: relative;
+}
+
+.skills::before,
+.experience::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.projects::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, rgba(0, 255, 136, 0.02) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 /* Container */
@@ -278,7 +314,36 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    letter-spacing: -0.02em;
+    position: relative;
 }
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+/* Scroll Reveal Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
 
 /* Skills Section */
 .skills {
@@ -377,9 +442,9 @@ body {
 }
 
 .project-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-8px) scale(1.02);
     border-color: var(--primary-color);
-    box-shadow: var(--glow-primary);
+    box-shadow: var(--glow-primary), 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .project-image {
@@ -504,6 +569,81 @@ body {
     left: 0;
     color: var(--accent-color);
     font-weight: bold;
+}
+
+/* Footer */
+.footer {
+    padding: 3rem 0 2rem;
+    border-top: 1px solid var(--card-border);
+    margin-top: 4rem;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: var(--glow-primary);
+}
+
+.footer-text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-text a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-text a:hover {
+    color: var(--accent-color);
+}
+
+.footer-copyright {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
 }
 
 /* Animations */

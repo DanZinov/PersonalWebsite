@@ -952,6 +952,11 @@ var pJS = function (tag_id, params) {
       isInArray("repulse", pJS.interactivity.events.onhover.mode) &&
       pJS.interactivity.status == "mousemove"
     ) {
+      // Safety check for null mouse positions
+      if (pJS.interactivity.mouse.pos_x == null || pJS.interactivity.mouse.pos_y == null) {
+        return;
+      }
+
       var dx_mouse = p.x - pJS.interactivity.mouse.pos_x,
         dy_mouse = p.y - pJS.interactivity.mouse.pos_y,
         dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse);

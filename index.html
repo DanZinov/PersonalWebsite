@@ -419,6 +419,30 @@
                 </div>
             </div>
         </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-social">
+                        <a href="https://github.com/DanZinov" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/daniilzinovyev" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.instagram.com/danielznv/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="mailto:daniil@daniilzinovyev.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                    <p class="footer-text">Designed & Built by <a href="#home">Daniil Zinovyev</a></p>
+                    <p class="footer-copyright">&copy; <span id="current-year"></span> All rights reserved</p>
+                </div>
+            </div>
+        </footer>
     </main>
 
     <!-- Scripts -->
@@ -460,11 +484,65 @@
             item.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-5px) scale(1.05)';
             });
-            
+
             item.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0) scale(1)';
-                    });
-                });
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                navbar.style.background = 'rgba(5, 5, 5, 0.98)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            const windowHeight = window.innerHeight;
+
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Add reveal classes to elements
+        document.querySelectorAll('.section-title').forEach(el => el.classList.add('reveal'));
+        document.querySelectorAll('.skill-item').forEach((el, i) => {
+            el.classList.add('reveal');
+            el.style.transitionDelay = `${(i % 8) * 0.05}s`;
+        });
+        document.querySelectorAll('.project-card').forEach((el, i) => {
+            el.classList.add('reveal');
+            el.style.transitionDelay = `${(i % 6) * 0.1}s`;
+        });
+        document.querySelectorAll('.experience-item').forEach((el, i) => {
+            el.classList.add('reveal');
+            el.style.transitionDelay = `${i * 0.15}s`;
+        });
+
+        window.addEventListener('scroll', reveal);
+        reveal(); // Initial call
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
         </script>
     </body>
 </html>

@@ -17,14 +17,14 @@ particlesJS(
   {
     particles: {
       number: {
-        value: 80,
+        value: 100,
         density: {
           enable: true,
-          value_area: 800,
+          value_area: 900,
         },
       },
       color: {
-        value: "#ffffff",
+        value: ["#00d4ff", "#00ff88", "#ffffff"],
       },
       shape: {
         type: "circle",
@@ -42,39 +42,40 @@ particlesJS(
         },
       },
       opacity: {
-        value: 1,
-        random: false,
+        value: 0.6,
+        random: true,
         anim: {
-          enable: false,
-          speed: 1,
-          opacity_min: 0.1,
+          enable: true,
+          speed: 0.5,
+          opacity_min: 0.2,
           sync: false,
         },
       },
       size: {
-        value: 4,
+        value: 3,
         random: true,
         anim: {
-          enable: false,
-          speed: 40,
-          size_min: 0.1,
+          enable: true,
+          speed: 1,
+          size_min: 1,
           sync: false,
         },
       },
       line_linked: {
         enable: true,
         distance: 150,
-        color: "#ffffff",
-        opacity: 0.8,
+        color: "#00d4ff",
+        opacity: 0.3,
         width: 1,
       },
       move: {
         enable: true,
-        speed: 1,
+        speed: 0.8,
         direction: "none",
-        random: false,
+        random: true,
         straight: false,
         out_mode: "out",
+        bounce: false,
         attract: {
           enable: false,
           rotateX: 600,
@@ -83,7 +84,7 @@ particlesJS(
       },
     },
     interactivity: {
-      detect_on: "canvas",
+      detect_on: "window",
       events: {
         onhover: {
           enable: true,
@@ -110,7 +111,8 @@ particlesJS(
           speed: 3,
         },
         repulse: {
-          distance: 200,
+          distance: 120,
+          duration: 0.4,
         },
         push: {
           particles_nb: 4,
