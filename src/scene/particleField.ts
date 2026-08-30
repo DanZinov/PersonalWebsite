@@ -150,9 +150,20 @@ export function createParticleField(
   );
   composer.addPass(bloom);
 
+  /**
+   * On a phone the copy runs the full width of the screen, so the field sits
+   * directly behind every line of text no matter where it is pushed. It has to
+   * be dimmer there to stay readable, and there is no point sliding it aside.
+   */
+  let narrow = window.innerWidth < 900;
+  let opacityTarget = narrow ? 0.3 : 0.6;
+
   function resize() {
     const width = window.innerWidth;
     const height = window.innerHeight;
+
+    narrow = width < 900;
+    opacityTarget = narrow ? 0.3 : 0.6;
     // Bloom is fill-rate bound, so cap DPR rather than rendering 3x on phones.
     const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
 
@@ -238,7 +249,7 @@ export function createParticleField(
 
     uniforms.uTime.value = elapsed;
     uniforms.uMorph.value = morph;
-    uniforms.uOpacity.value = damp(uniforms.uOpacity.value, 0.6, 0.03, dt);
+    uniforms.uOpacity.value = damp(uniforms.uOpacity.value, opacityTarget, 0.03, dt);
 
     // Blend the look of the two formations we sit between.
     const lower = Math.min(Math.floor(morph), MAX_MORPH);
@@ -279,7 +290,7 @@ export function createParticleField(
     const clearance = Math.min(scrollCurrent / 0.14, 1);
     points.position.x = damp(
       points.position.x,
-      clearance * clearance * (3 - 2 * clearance) * 5.5,
+      narrow ? 0 : clearance * clearance * (3 - 2 * clearance) * 5.5,
       0.05,
       dt,
     );

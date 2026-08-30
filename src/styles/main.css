@@ -116,6 +116,23 @@ ul {
     radial-gradient(120% 80% at 50% 0%, rgba(5, 6, 10, 0) 35%, rgba(5, 6, 10, 0.6) 100%);
 }
 
+/**
+ * On a phone the copy runs the full width, so there is no clear side to push
+ * the field to and the column scrim above protects nothing. Swap it for a flat
+ * veil: the field becomes texture behind the words instead of competing.
+ */
+@media (max-width: 900px) {
+  .backdrop {
+    background:
+      linear-gradient(180deg, rgba(5, 6, 10, 0.88) 0%, rgba(5, 6, 10, 0.82) 100%),
+      radial-gradient(
+        110% 60% at 50% 0%,
+        rgba(5, 6, 10, 0) 30%,
+        rgba(5, 6, 10, 0.5) 100%
+      );
+  }
+}
+
 body.no-webgl .backdrop {
   background:
     radial-gradient(90% 60% at 20% 0%, rgba(99, 102, 241, 0.22), transparent 65%),
