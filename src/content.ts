@@ -59,7 +59,14 @@ export const projects: Project[] = [
     tagline: "Post a plan, leave one seat open",
     description:
       "A dating app where the unit of interaction is a concrete plan rather than a profile. You post something real and time-boxed, people request the seat, you pick one, the seat locks. A serverless backend runs the whole lifecycle: expiry sweeps, grace windows, and automated photo moderation.",
-    stack: ["React Native", "Hono", "TypeScript", "DynamoDB", "Rekognition", "Stripe"],
+    stack: [
+      "React Native",
+      "Hono",
+      "TypeScript",
+      "DynamoDB",
+      "Rekognition",
+      "RevenueCat",
+    ],
     links: [
       { label: "seatt.app", href: "https://seatt.app" },
       {
