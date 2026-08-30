@@ -285,6 +285,17 @@ function watchScroll(
     { passive: true },
   );
   window.addEventListener("resize", measure);
+
+  /**
+   * Web fonts swapping in and lazy images decoding both reflow the page, which
+   * can slide an element past the viewport without a scroll event to notice it.
+   * Re-measuring whenever the document changes height covers that.
+   */
+  if ("ResizeObserver" in window) {
+    new ResizeObserver(measure).observe(document.body);
+  }
+  window.addEventListener("load", measure);
+
   measure();
 }
 
