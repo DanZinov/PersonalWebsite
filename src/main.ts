@@ -196,14 +196,28 @@ function renderContact() {
 
 // ----------------------------------------------------------------- motion ---
 
-function watchReveals() {
-  const targets = document.querySelectorAll<HTMLElement>(".reveal");
+/**
+ * Fades content in on scroll, and guarantees nothing is ever left invisible.
+ *
+ * Returns a sweep to call whenever the page has scrolled. The observer alone is
+ * not enough: it can miss an element that flies past during a fast flick, and
+ * the element then stays at opacity 0 until you happen to scroll back to it.
+ * The sweep catches those. It walks only the elements still waiting, so it
+ * costs nothing once everything has appeared.
+ */
+function watchReveals(): () => void {
+  const pending = new Set(document.querySelectorAll<HTMLElement>(".reveal"));
+
+  const show = (node: HTMLElement) => {
+    node.classList.add("is-visible");
+    pending.delete(node);
+  };
 
   // Without the observer, content must still be readable rather than stuck at
   // opacity 0.
   if (!("IntersectionObserver" in window)) {
-    for (const node of targets) node.classList.add("is-visible");
-    return;
+    for (const node of [...pending]) show(node);
+    return () => {};
   }
 
   /**
@@ -216,23 +230,38 @@ function watchReveals() {
     (entries) => {
       for (const entry of entries) {
         if (!entry.isIntersecting) continue;
-        entry.target.classList.add("is-visible");
         observer.unobserve(entry.target);
+        show(entry.target as HTMLElement);
       }
     },
     { rootMargin: "0px 0px -48px 0px", threshold: 0 },
   );
 
-  for (const node of targets) {
+  for (const node of pending) {
     observer.observe(node);
   }
+
+  return () => {
+    if (!pending.size) return;
+    const limit = window.innerHeight - 48;
+    for (const node of [...pending]) {
+      const { top, bottom } = node.getBoundingClientRect();
+      if (top < limit && bottom > 0) {
+        observer.unobserve(node);
+        show(node);
+      }
+    }
+  };
 }
 
 /**
  * One scroll listener drives both the progress bar and the WebGL morph, so
  * they can never disagree about where the page is.
  */
-function watchScroll(onProgress: (progress: number) => void) {
+function watchScroll(
+  onProgress: (progress: number) => void,
+  sweepReveals: () => void,
+) {
   const bar = need("scroll-bar");
   let queued = false;
 
@@ -243,6 +272,7 @@ function watchScroll(onProgress: (progress: number) => void) {
     const clamped = Math.min(Math.max(progress, 0), 1);
     bar.style.transform = `scaleX(${clamped})`;
     onProgress(clamped);
+    sweepReveals();
   };
 
   window.addEventListener(
@@ -272,18 +302,18 @@ renderSideProjects();
 renderExperience();
 renderSkills();
 renderContact();
-watchReveals();
+const sweepReveals = watchReveals();
 
 const canvas = need<HTMLCanvasElement>("field");
 const field = createParticleField(canvas);
 
 if (field) {
-  watchScroll((progress) => field.setScrollProgress(progress));
+  watchScroll((progress) => field.setScrollProgress(progress), sweepReveals);
 } else {
   // No WebGL: the CSS backdrop carries the page on its own.
   document.body.classList.add("no-webgl");
   canvas.remove();
-  watchScroll(() => {});
+  watchScroll(() => {}, sweepReveals);
 }
 
 // Give the first frames a moment to land before uncovering the page.
