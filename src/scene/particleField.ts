@@ -150,30 +150,28 @@ export function createParticleField(
   );
   composer.addPass(bloom);
 
-  /**
-   * On a phone the copy runs the full width of the screen, so the field sits
-   * directly behind every line of text no matter where it is pushed. It has to
-   * be dimmer there to stay readable, and there is no point sliding it aside.
-   */
   const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
 
+  /**
+   * The field renders at full strength on a phone, same as desktop.
+   * Readability there comes from the translucent panels behind the copy, not
+   * from dimming the thing worth looking at. Narrow screens only skip the
+   * sideways slide, because with full-width text there is no free side to
+   * slide the field into.
+   */
   let narrow = window.innerWidth < 900;
-  let opacityTarget = narrow ? 0.3 : 0.6;
 
   function resize() {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
     narrow = width < 900;
-    opacityTarget = narrow ? 0.3 : 0.6;
 
     /**
-     * Bloom is fill-rate bound and by far the most expensive thing here, so a
-     * phone gets neither it nor a high pixel ratio. Losing the glow costs
-     * little when the field is already dimmed to sit behind text, and it buys
-     * back the headroom that keeps scrolling smooth.
+     * Bloom is fill-rate bound and its cost scales with the pixel ratio it is
+     * rendered at, so capping DPR on a phone keeps the glow while buying back
+     * the headroom that keeps scrolling smooth.
      */
-    bloom.enabled = !narrow;
     const dpr = Math.min(window.devicePixelRatio || 1, narrow ? 1.25 : 1.75);
 
     camera.aspect = width / height;
@@ -271,7 +269,7 @@ export function createParticleField(
 
     uniforms.uTime.value = elapsed;
     uniforms.uMorph.value = morph;
-    uniforms.uOpacity.value = damp(uniforms.uOpacity.value, opacityTarget, 0.03, dt);
+    uniforms.uOpacity.value = damp(uniforms.uOpacity.value, 0.6, 0.03, dt);
 
     // Blend the look of the two formations we sit between.
     const lower = Math.min(Math.floor(morph), MAX_MORPH);
