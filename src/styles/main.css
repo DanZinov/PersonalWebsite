@@ -320,6 +320,11 @@ main {
   background: linear-gradient(100deg, #ffffff 10%, #8aa0ff 55%, #c084fc 95%);
   -webkit-background-clip: text;
   background-clip: text;
+  /* The tight line-height crops the line box above the descenders, and
+     background-clip: text only paints inside that box, so the tail of the "y"
+     was being cut off. Pad the box back out, then reclaim the space. */
+  padding-bottom: 0.16em;
+  margin-bottom: -0.16em;
 }
 
 .hero__role {
@@ -508,19 +513,6 @@ main {
   color: var(--accent);
 }
 
-.project__go {
-  margin-left: auto;
-  align-self: flex-start;
-  font-size: 1.1rem;
-  color: var(--ink-faint);
-  transition: transform 0.35s var(--ease), color 0.35s var(--ease);
-}
-
-.project:hover .project__go {
-  transform: translate(3px, -3px);
-  color: var(--ink);
-}
-
 .project__body {
   color: var(--ink-dim);
   font-size: 0.97rem;
@@ -541,6 +533,122 @@ main {
   border-radius: 999px;
   border: 1px solid var(--line);
   color: var(--ink-dim);
+}
+
+/* ============================================================== links === */
+
+/* Cards carry a site and sometimes a store listing, so the destinations sit in
+   their own row rather than the whole card being one link. */
+.project__links,
+.aside-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.project__links a,
+.aside-card__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--ink-dim);
+  transition: color 0.25s var(--ease), border-color 0.25s var(--ease),
+    background 0.25s var(--ease);
+}
+
+.project__links a:hover,
+.aside-card__links a:hover {
+  color: var(--ink);
+  border-color: color-mix(in oklab, var(--accent, #7c8cff) 55%, transparent);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.link__go {
+  font-size: 0.9em;
+  color: var(--ink-faint);
+  transition: transform 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.project__links a:hover .link__go,
+.aside-card__links a:hover .link__go {
+  transform: translate(2px, -2px);
+  color: var(--accent, var(--ink));
+}
+
+/* ========================================================= also built === */
+
+.subsection {
+  margin-top: clamp(3rem, 7vw, 5rem);
+}
+
+.subsection__title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.aside-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+}
+
+.aside-card {
+  --accent: #8b90a6;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(12, 14, 22, 0.5);
+  backdrop-filter: blur(14px);
+  transition: transform 0.4s var(--ease), border-color 0.4s var(--ease);
+}
+
+.aside-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-strong);
+}
+
+.aside-card__name {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.aside-card__body {
+  font-size: 0.9rem;
+  color: var(--ink-dim);
+}
+
+.aside-card__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+.aside-card__stack li {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--ink-faint);
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
 }
 
 /* ========================================================== experience === */
@@ -742,14 +850,6 @@ main {
 
 .contact__links a:hover {
   color: var(--ink);
-}
-
-.contact__legal {
-  margin-top: 4rem;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  color: var(--ink-faint);
 }
 
 /* ============================================================= reveals === */

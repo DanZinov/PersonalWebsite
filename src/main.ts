@@ -1,6 +1,14 @@
 import "./styles/main.css";
 
-import { education, experience, profile, projects, skills } from "./content";
+import {
+  education,
+  experience,
+  profile,
+  projects,
+  sideProjects,
+  skills,
+  type ProjectLink,
+} from "./content";
 import { createParticleField } from "./scene/particleField";
 
 function el<K extends keyof HTMLElementTagNameMap>(
@@ -29,19 +37,30 @@ function renderHero() {
   }
 }
 
+/**
+ * Cards carry more than one destination now (a site and an App Store listing),
+ * so the links live in their own row rather than wrapping the whole card.
+ */
+function linkRow(links: ProjectLink[], className: string): HTMLElement {
+  const row = el("div", className);
+  for (const link of links) {
+    const anchor = el("a", undefined);
+    anchor.href = link.href;
+    anchor.target = "_blank";
+    anchor.rel = "noopener noreferrer";
+    anchor.append(el("span", undefined, link.label), el("span", "link__go", "↗"));
+    row.append(anchor);
+  }
+  return row;
+}
+
 function renderProjects() {
   const host = need("projects");
 
   projects.forEach((project, index) => {
-    const card = el(project.href ? "a" : "article", "project reveal");
+    const card = el("article", "project reveal");
     card.style.setProperty("--accent", project.accent);
     card.style.setProperty("--stagger", `${index * 70}ms`);
-
-    if (project.href && card instanceof HTMLAnchorElement) {
-      card.href = project.href;
-      card.target = "_blank";
-      card.rel = "noopener noreferrer";
-    }
 
     const head = el("div", "project__head");
 
@@ -65,7 +84,6 @@ function renderProjects() {
     );
 
     head.append(badge, titles);
-    if (project.href) head.append(el("span", "project__go", "↗"));
 
     const stack = el("ul", "project__stack");
     for (const tech of project.stack) {
@@ -73,6 +91,34 @@ function renderProjects() {
     }
 
     card.append(head, el("p", "project__body", project.description), stack);
+    if (project.links.length) {
+      card.append(linkRow(project.links, "project__links"));
+    }
+    host.append(card);
+  });
+}
+
+function renderSideProjects() {
+  const host = need("side-projects");
+
+  sideProjects.forEach((project, index) => {
+    const card = el("article", "aside-card reveal");
+    card.style.setProperty("--stagger", `${index * 70}ms`);
+
+    card.append(
+      el("h4", "aside-card__name", project.name),
+      el("p", "aside-card__body", project.description),
+    );
+
+    const stack = el("ul", "aside-card__stack");
+    for (const tech of project.stack) {
+      stack.append(el("li", undefined, tech));
+    }
+    card.append(stack);
+
+    if (project.links.length) {
+      card.append(linkRow(project.links, "aside-card__links"));
+    }
     host.append(card);
   });
 }
@@ -146,8 +192,6 @@ function renderContact() {
     link.rel = "noopener noreferrer";
     host.append(link);
   }
-
-  need("year").textContent = String(new Date().getFullYear());
 }
 
 // ----------------------------------------------------------------- motion ---
@@ -209,6 +253,7 @@ function dismissLoader() {
 
 renderHero();
 renderProjects();
+renderSideProjects();
 renderExperience();
 renderSkills();
 renderContact();

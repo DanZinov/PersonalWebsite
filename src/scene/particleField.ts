@@ -4,7 +4,9 @@ import {
   BufferGeometry,
   Color,
   PerspectiveCamera,
+  Plane,
   Points,
+  Raycaster,
   Scene,
   ShaderMaterial,
   Vector2,
@@ -169,11 +171,17 @@ export function createParticleField(
   resize();
 
   // ---- input --------------------------------------------------------------
-  // Pointer in normalized device coords, converted to a world point on z = 0.
-  const pointerNdc = { x: 0, y: 0 };
+  const pointerNdc = new Vector2(0, 0);
   let pointerActive = false;
-  const cursorWorld = new Vector3(9999, 9999, 9999);
+  const cursorLocal = new Vector3(9999, 9999, 9999);
   const cursorTarget = new Vector3(9999, 9999, 9999);
+
+  const raycaster = new Raycaster();
+  // A plane through the origin facing the camera. Intersecting the pointer ray
+  // with it gives the world point the cursor is actually over, at the depth the
+  // field sits at.
+  const focalPlane = new Plane();
+  const cameraForward = new Vector3();
 
   function onPointerMove(event: PointerEvent) {
     pointerNdc.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -246,34 +254,6 @@ export function createParticleField(
     uniforms.uColorA.value.copy(colorA);
     uniforms.uColorB.value.copy(colorB);
 
-    // Cursor repulsion, eased in and out so it never pops.
-    if (pointerActive) {
-      const distance = a.distance + (b.distance - a.distance) * blend;
-      // Project the pointer onto the z = 0 plane at roughly the field's depth.
-      const halfHeight = Math.tan((camera.fov * Math.PI) / 360) * distance;
-      const halfWidth = halfHeight * camera.aspect;
-      cursorTarget.set(
-        pointerNdc.x * halfWidth,
-        pointerNdc.y * halfHeight + camera.position.y * 0.35,
-        0,
-      );
-      cursorWorld.lerp(cursorTarget, 0.18);
-      uniforms.uCursor.value.copy(cursorWorld);
-      uniforms.uCursorStrength.value = damp(
-        uniforms.uCursorStrength.value,
-        reducedMotion ? 0 : 1.9,
-        0.06,
-        dt,
-      );
-    } else {
-      uniforms.uCursorStrength.value = damp(
-        uniforms.uCursorStrength.value,
-        0,
-        0.06,
-        dt,
-      );
-    }
-
     // Camera dollies out and drifts down as the page advances.
     const targetDistance = a.distance + (b.distance - a.distance) * blend;
     camera.position.z = damp(camera.position.z, targetDistance, 0.05, dt);
@@ -307,6 +287,45 @@ export function createParticleField(
     if (!reducedMotion) {
       points.rotation.y = elapsed * 0.035 + scrollCurrent * 0.9;
       points.rotation.x = Math.sin(elapsed * 0.08) * 0.06;
+    }
+
+    /**
+     * Cursor repulsion, resolved last so it uses this frame's camera and mesh
+     * transforms rather than the previous frame's.
+     *
+     * The shader compares `uCursor` against positions in the mesh's own local
+     * space, but the mesh is rotated every frame and slid sideways on scroll.
+     * Raycasting to a plane through the field and then converting the hit with
+     * `worldToLocal` is what keeps the push centred under the pointer instead
+     * of drifting off to one side.
+     */
+    if (pointerActive) {
+      camera.updateMatrixWorld();
+      points.updateMatrixWorld();
+
+      camera.getWorldDirection(cameraForward);
+      focalPlane.setFromNormalAndCoplanarPoint(cameraForward, points.position);
+
+      raycaster.setFromCamera(pointerNdc, camera);
+      if (raycaster.ray.intersectPlane(focalPlane, cursorTarget)) {
+        points.worldToLocal(cursorTarget);
+        cursorLocal.lerp(cursorTarget, 0.22);
+        uniforms.uCursor.value.copy(cursorLocal);
+      }
+
+      uniforms.uCursorStrength.value = damp(
+        uniforms.uCursorStrength.value,
+        reducedMotion ? 0 : 1.9,
+        0.06,
+        dt,
+      );
+    } else {
+      uniforms.uCursorStrength.value = damp(
+        uniforms.uCursorStrength.value,
+        0,
+        0.06,
+        dt,
+      );
     }
 
     composer.render();
