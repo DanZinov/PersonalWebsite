@@ -1,0 +1,23 @@
+{
+  "name": "daniilzinovyev-infra",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AWS CDK infrastructure for daniilzinovyev.com",
+  "scripts": {
+    "synth": "cdk synth",
+    "diff": "cdk diff",
+    "deploy": "cdk deploy --require-approval never",
+    "import": "cdk import --context importMode=true --resource-mapping resource-mapping.json",
+    "destroy": "cdk destroy"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "aws-cdk": "^2.162.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.162.0",
+    "constructs": "^10.3.0"
+  }
+}

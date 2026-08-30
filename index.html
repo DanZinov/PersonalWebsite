@@ -1,548 +1,119 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Daniil Zinovyev - Computer Science Graduate, Data Scientist, and Game Developer" />
-    <title>Daniil Zinovyev - Portfolio</title>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="icon" href="images/iconweb.png" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css" />
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="./style.css" />
-</head>
-    <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="#home">DZ</a>
-            </div>
-            
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#skills" class="nav-link">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#experience" class="nav-link">Experience</a>
-                </li>
-            </ul>
-            
-            <div class="nav-social">
-                <a href="https://github.com/DanZinov" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/daniilzinovyev" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://www.instagram.com/danielznv/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </div>
-            
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Daniil Zinovyev — Senior Software Development Engineer</title>
+    <meta
+      name="description"
+      content="Daniil Zinovyev is a Senior Software Development Engineer at Amazon in Toronto, building large-scale distributed systems and shipping serverless mobile products end to end."
+    />
+    <meta name="theme-color" content="#05060a" />
+    <link rel="canonical" href="https://www.daniilzinovyev.com/" />
+    <link rel="icon" href="/images/iconweb.png" />
+    <link rel="apple-touch-icon" href="/images/iconweb.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.daniilzinovyev.com/" />
+    <meta property="og:title" content="Daniil Zinovyev — Senior Software Development Engineer" />
+    <meta
+      property="og:description"
+      content="Senior Software Development Engineer at Amazon. Distributed systems by day, serverless mobile products by night."
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- The WebGL field lives behind everything and never intercepts input. -->
+    <canvas id="field" aria-hidden="true"></canvas>
+    <div class="backdrop" aria-hidden="true"></div>
+
+    <div id="loader" class="loader">
+      <div class="loader__mark">DZ</div>
+      <div class="loader__bar"><span></span></div>
+    </div>
+
+    <div class="scroll-progress" aria-hidden="true"><span id="scroll-bar"></span></div>
+
+    <header class="nav">
+      <a class="nav__mark" href="#top" aria-label="Back to top">DZ</a>
+      <nav class="nav__links" aria-label="Sections">
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="nav__cta" href="/Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <p class="hero__eyebrow reveal">Toronto, Canada</p>
+        <h1 class="hero__name reveal">
+          <span>Daniil</span>
+          <span>Zinovyev</span>
+        </h1>
+        <p class="hero__role reveal">
+          Senior Software Development Engineer
+          <span class="hero__at">at</span>
+          <span class="hero__company">Amazon</span>
+        </p>
+        <div class="hero__intro reveal" id="hero-intro"></div>
+        <div class="hero__actions reveal">
+          <a class="btn btn--primary" href="/Resume.pdf" target="_blank" rel="noopener">
+            Résumé
+          </a>
+          <a class="btn" href="#work">Selected work</a>
         </div>
-    </nav>
+      </section>
 
-    <!-- Particles Background -->
-    <div id="particles-js"></div>
+      <section id="work" class="section">
+        <div class="section__head">
+          <span class="section__index">01</span>
+          <h2 class="section__title">Selected work</h2>
+          <p class="section__note">
+            Personal projects, built solo end to end: client, API, and the
+            infrastructure underneath.
+          </p>
+        </div>
+        <div class="projects" id="projects"></div>
+      </section>
 
-    <!-- Main Content -->
-    <main id="full-page">
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-                <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Daniil Zinovyev</h1>
-                    <p class="hero-subtitle">Software Development Engineer II at Amazon</p>
-                    <p class="hero-description">
-                        Welcome to my portfolio! I am a Software Development Engineer II at Amazon, where I build large-scale software solutions and collaborate with global customers. I graduated from the University of Toronto Scarborough with a Bachelor of Science Degree in Computer, Mathematical, and Statistical Sciences.
-                    </p>
-                    <p class="hero-description">
-                        I specialize in full-stack development with AWS cloud services, including Lambda, DynamoDB, S3, SNS, and Step Functions. My expertise spans TypeScript, Java, Python, Angular, and React, allowing me to create robust, scalable applications that solve complex business challenges.
-                    </p>
-                    <p class="hero-description">
-                        Beyond my professional work, I enjoy developing mobile and PC games as a creative outlet. Below you'll find my resume, mobile games published on Google Play, and other projects that showcase my technical skills and passion for software development.
-                    </p>
-                    
-                    <div class="hero-buttons">
-                        <a href="https://www.daniilzinovyev.com/Resume.pdf" 
-                        target="_blank"
-                           class="btn btn-primary">
-                            <i class="fas fa-file-alt"></i>
-                            <span>Resume</span>
-                        </a>
-                        
-                        <a href="https://play.google.com/store/apps/details?id=com.firelandvalley.forgottentreasures" 
-                        target="_blank"
-                           class="btn btn-secondary">
-                            <i class="fab fa-google-play"></i>
-                            <span>Forgotten Treasures</span>
-                        </a>
-                        
-                        <a href="https://play.google.com/store/apps/details?id=com.FirelandsValley.MakeLight" 
-                        target="_blank"
-                           class="btn btn-secondary">
-                            <i class="fab fa-google-play"></i>
-                            <span>Make Light</span>
-                        </a>
-                    </div>
-                </div>
-                </div>
-            </section>
+      <section id="experience" class="section">
+        <div class="section__head">
+          <span class="section__index">02</span>
+          <h2 class="section__title">Experience</h2>
+        </div>
+        <div class="timeline" id="timeline"></div>
+        <div class="education reveal" id="education"></div>
+      </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="skills">
-            <div class="container">
-                <h2 class="section-title">Skills & Technologies</h2>
-                <div class="skills-grid">
-                    <!-- Programming Languages -->
-                    <div class="skill-item" data-skill="TypeScript">
-                        <i class="devicon-typescript-plain"></i>
-                        <span>TypeScript</span>
-                    </div>
-                    <div class="skill-item" data-skill="JavaScript">
-                        <i class="devicon-javascript-plain"></i>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="skill-item" data-skill="Python">
-                        <i class="devicon-python-plain"></i>
-                        <span>Python</span>
-                    </div>
-                    <div class="skill-item" data-skill="Java">
-                        <i class="devicon-java-plain"></i>
-                        <span>Java</span>
-                    </div>
-                    <div class="skill-item" data-skill="C#">
-                        <i class="devicon-csharp-plain"></i>
-                        <span>C#</span>
-                    </div>
-                    
-                    <!-- Cloud & DevOps -->
-                    <div class="skill-item" data-skill="AWS">
-                        <i class="devicon-amazonwebservices-original"></i>
-                        <span>AWS</span>
-                    </div>
-                    <div class="skill-item" data-skill="Lambda">
-                        <i class="fas fa-cloud"></i>
-                        <span>Lambda</span>
-                    </div>
-                    <div class="skill-item" data-skill="DynamoDB">
-                        <i class="fas fa-database"></i>
-                        <span>DynamoDB</span>
-                    </div>
-                    <div class="skill-item" data-skill="S3">
-                        <i class="fas fa-hdd"></i>
-                        <span>S3</span>
-                    </div>
-                    <div class="skill-item" data-skill="Git">
-                        <i class="devicon-git-plain"></i>
-                        <span>Git</span>
-                    </div>
-                    <div class="skill-item" data-skill="Linux">
-                        <i class="devicon-linux-plain"></i>
-                        <span>Linux</span>
-                    </div>
-                    
-                    <!-- Frontend -->
-                    <div class="skill-item" data-skill="React">
-                        <i class="devicon-react-original"></i>
-                        <span>React</span>
-                    </div>
-                    <div class="skill-item" data-skill="Angular">
-                        <i class="devicon-angularjs-plain"></i>
-                        <span>Angular</span>
-                    </div>
-                    <div class="skill-item" data-skill="HTML5">
-                        <i class="devicon-html5-plain"></i>
-                        <span>HTML5</span>
-                    </div>
-                    <div class="skill-item" data-skill="CSS3">
-                        <i class="devicon-css3-plain"></i>
-                        <span>CSS3</span>
-                    </div>
-                    
-                    <!-- Backend & Databases -->
-                    <div class="skill-item" data-skill="Node.js">
-                        <i class="devicon-nodejs-plain"></i>
-                        <span>Node.js</span>
-                    </div>
-                    <div class="skill-item" data-skill="Express">
-                        <i class="devicon-express-original"></i>
-                        <span>Express</span>
-                    </div>
-                    <div class="skill-item" data-skill="MongoDB">
-                        <i class="devicon-mongodb-plain"></i>
-                        <span>MongoDB</span>
-                    </div>
-                    <div class="skill-item" data-skill="MySQL">
-                        <i class="devicon-mysql-plain"></i>
-                        <span>MySQL</span>
-                    </div>
-                    
-                    <!-- Mobile & Tools -->
-                    <div class="skill-item" data-skill="Android">
-                        <i class="devicon-android-plain"></i>
-                        <span>Android</span>
-                    </div>
-                    <div class="skill-item" data-skill="Photoshop">
-                        <i class="devicon-photoshop-plain"></i>
-                        <span>Photoshop</span>
-                    </div>
-                </div>
-                </div>
-            </section>
+      <section id="skills" class="section">
+        <div class="section__head">
+          <span class="section__index">03</span>
+          <h2 class="section__title">Toolkit</h2>
+        </div>
+        <div class="skills" id="skills-grid"></div>
+      </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="projects">
-            <div class="container">
-                <h2 class="section-title">Projects</h2>
-                <div class="projects-grid">
-                    <a href="https://github.com/DanZinov/ForgottenTreasures" 
-                        target="_blank"
-                       class="project-card">
-                        <div class="project-image">
-                            <img src="images/Forgotten_Treasures_Icon.png" 
-                                 alt="Forgotten Treasures" />
-                        </div>
-                        <h3 class="project-title">Forgotten Treasures</h3>
-                    </a>
-                    
-                    <a href="https://github.com/DanZinov/SudokuSolver" 
-                        target="_blank"
-                       class="project-card">
-                        <div class="project-image">
-                            <img src="images/sudoku_icon.jpg" 
-                                 alt="Sudoku Solver" />
-                        </div>
-                        <h3 class="project-title">Sudoku Solver</h3>
-                    </a>
-                    
-                    <a href="https://github.com/DanZinov/ArtificialIntelligence" 
-                        target="_blank"
-                       class="project-card">
-                        <div class="project-image">
-                            <img src="images/machine learning.png" 
-                                 alt="Artificial Intelligence" />
-                        </div>
-                        <h3 class="project-title">Artificial Intelligence</h3>
-                    </a>
-                    
-                    <a href="https://github.com/DanZinov/SnakeAndLadders" 
-                        target="_blank"
-                       class="project-card">
-                        <div class="project-image">
-                            <img src="images/snake_and_ladder.jpg" 
-                                 alt="Snakes and Ladders" />
-                        </div>
-                        <h3 class="project-title">Snakes and Ladders</h3>
-                    </a>
-                    
-                    <a href="https://github.com/DanZinov/MakeLight" 
-                        target="_blank"
-                       class="project-card">
-                        <div class="project-image">
-                            <img src="images/Icon.png" 
-                                 alt="Make Light" />
-                        </div>
-                        <h3 class="project-title">Make Light</h3>
-                    </a>
-                    
-                    <a href="https://github.com/DanZinov/TicTacToe" 
-                        target="_blank"
-                       class="project-card">
-                        <div class="project-image">
-                            <img src="images/tic-tac-toe.jpg" 
-                                 alt="Tic Tac Toe" />
-                        </div>
-                        <h3 class="project-title">Tic Tac Toe</h3>
-                    </a>
-                    
-                    <a href="https://github.com/DanZinov/Minesweeper" 
-                        target="_blank"
-                       class="project-card">
-                        <div class="project-image">
-                            <img src="images/minesweeper.png" 
-                                 alt="Minesweeper" />
-                        </div>
-                        <h3 class="project-title">Minesweeper</h3>
-                    </a>
-                    
-                    <a href="https://github.com/DanZinov/RPG" 
-                        target="_blank"
-                       class="project-card">
-                        <div class="project-image">
-                            <img src="images/rpg.jpg" 
-                                 alt="RPG game" />
-                        </div>
-                        <h3 class="project-title">RPG Game</h3>
-                    </a>
-                    
-                    <a href="https://github.com/DanZinov/Course-Scheduler" 
-                        target="_blank"
-                       class="project-card">
-                        <div class="project-image">
-                            <img src="images/courses.png" 
-                                 alt="Course Scheduler" />
-                        </div>
-                        <h3 class="project-title">Course Scheduler</h3>
-                    </a>
-                    
-                    <a href="https://github.com/DanZinov/Mandelbrot-Set" 
-                        target="_blank"
-                       class="project-card">
-                        <div class="project-image">
-                            <img src="images/Mandelbrot Set.jpg" 
-                                 alt="Mandelbrot Set" />
-                        </div>
-                        <h3 class="project-title">Mandelbrot Set</h3>
-                    </a>
-                    
-                    <a href="https://github.com/DanZinov/Real-Time-Image-Recognition" 
-                        target="_blank"
-                       class="project-card">
-                        <div class="project-image">
-                            <img src="images/Pattern-Recognition.jpg" 
-                                 alt="Image Recognition" />
-                        </div>
-                        <h3 class="project-title">Image Recognition</h3>
-                    </a>
-                    
-                    <a href="https://github.com/DanZinov/CryoBot" 
-                        target="_blank"
-                       class="project-card">
-                        <div class="project-image">
-                            <img src="images/bot.jpg" 
-                                 alt="CryoBot" />
-                        </div>
-                        <h3 class="project-title">CryoBot</h3>
-                    </a>
-                </div>
-                </div>
-            </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="experience">
-            <div class="container">
-                <h2 class="section-title">Relevant Experience</h2>
-                <div class="experience-timeline">
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <h3 class="experience-title">Software Development Engineer II</h3>
-                            <p class="experience-company">Amazon</p>
-                            <p class="experience-period">March 2021 - Present</p>
-                        </div>
-                        <div class="experience-content">
-                            <ul>
-                                <li>Developed large-scale software solutions in a fast-paced agile environment, collaborating with global customers to create tailored applications that addressed their specific needs</li>
-                                <li>Utilized various AWS services, including Lambda, DynamoDB, S3, SNS, and Step Functions, to deliver robust and scalable applications</li>
-                                <li>Employed programming languages such as TypeScript (NodeJS), Java, and Python to build diverse software projects</li>
-                                <li>Leveraged the Angular framework for creating feature-rich and responsive web applications</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <h3 class="experience-title">Machine Learning Engineer</h3>
-                            <p class="experience-company">RBC, Toronto</p>
-                            <p class="experience-period">May 2019 – August 2019</p>
-                        </div>
-                        <div class="experience-content">
-                            <ul>
-                                <li>Collaborated with the Machine Learning team to develop diverse analytics using Python (PySpark, Matplotlib), SQL, and JavaScript, effectively visualizing the performance of machine learning models</li>
-                                <li>Created an optimized feature bucketing distribution algorithms for models while working with Big Data managed by a Hadoop cluster, enhancing overall efficiency</li>
-                                <li>Conducted comprehensive performance analysis of XGBoost and Random Forest models, utilizing metrics such as ROC Curves, Non-Cumulative Lifts, and Confusion Matrices to ensure accurate evaluation</li>
-                                <li>Implemented the LIME Explainer for black-box model testing, streamlining the process and automating client look-up dashboards for improved user experience</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <h3 class="experience-title">Coordinator of Computer Science Club</h3>
-                            <p class="experience-company">Markham, ON</p>
-                            <p class="experience-period">October 2015 – March 2016</p>
-                        </div>
-                        <div class="experience-content">
-                            <ul>
-                                <li>Provided programming tutoring to club members, fostering the development of enhanced problem-solving skills and a deeper understanding of computer science concepts</li>
-                                <li>Cultivated leadership, punctuality, and coordination skills through effective management and organization of club activities and events</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <h3 class="experience-title">University of Toronto Teacher Assistant</h3>
-                            <p class="experience-company">University of Toronto</p>
-                            <p class="experience-period">September 2016 – December 2017</p>
-                        </div>
-                        <div class="experience-content">
-                            <ul>
-                                <li>Facilitated a smooth transition for students from high school to university, providing guidance and support to navigate the new academic environment</li>
-                                <li>Delivered tutoring in various Mathematics and Computer Science subjects, ensuring students remained on track with their coursework and preventing them from falling behind academically</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <h3 class="experience-title">University of Toronto Coding Challenge</h3>
-                            <p class="experience-company">University of Toronto</p>
-                            <p class="experience-period">September 2018</p>
-                        </div>
-                        <div class="experience-content">
-                            <ul>
-                                <li>Participated in Google coding competition in a team against other University of Toronto students</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-social">
-                        <a href="https://github.com/DanZinov" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/daniilzinovyev" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://www.instagram.com/danielznv/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="mailto:daniil@daniilzinovyev.com" aria-label="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                    <p class="footer-text">Designed & Built by <a href="#home">Daniil Zinovyev</a></p>
-                    <p class="footer-copyright">&copy; <span id="current-year"></span> All rights reserved</p>
-                </div>
-            </div>
-        </footer>
+      <footer id="contact" class="contact">
+        <span class="section__index">04</span>
+        <h2 class="contact__title reveal">Let's build something.</h2>
+        <a class="contact__email reveal" id="contact-email" href="#">&nbsp;</a>
+        <div class="contact__links reveal" id="contact-links"></div>
+        <p class="contact__legal">
+          © <span id="year"></span> Daniil Zinovyev. Built with Three.js, deployed with AWS CDK.
+        </p>
+      </footer>
     </main>
 
-    <!-- Scripts -->
-    <script src="particles.js"></script>
-    <script src="particles/js/app.js"></script>
-        <script>
-
-        // Mobile navigation
-        const hamburger = document.querySelector(".hamburger");
-        const navMenu = document.querySelector(".nav-menu");
-
-        hamburger.addEventListener("click", () => {
-            hamburger.classList.toggle("active");
-            navMenu.classList.toggle("active");
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
-            hamburger.classList.remove("active");
-            navMenu.classList.remove("active");
-        }));
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Skill items hover effect
-        document.querySelectorAll('.skill-item').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px) scale(1.05)';
-            });
-
-            item.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Navbar scroll effect
-        const navbar = document.querySelector('.navbar');
-        let lastScroll = 0;
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-
-            if (currentScroll > 100) {
-                navbar.style.background = 'rgba(5, 5, 5, 0.98)';
-                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
-            } else {
-                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-                navbar.style.boxShadow = 'none';
-            }
-
-            lastScroll = currentScroll;
-        });
-
-        // Scroll Reveal Animation
-        function reveal() {
-            const reveals = document.querySelectorAll('.reveal');
-            const windowHeight = window.innerHeight;
-
-            reveals.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const revealPoint = 150;
-
-                if (elementTop < windowHeight - revealPoint) {
-                    element.classList.add('active');
-                }
-            });
-        }
-
-        // Add reveal classes to elements
-        document.querySelectorAll('.section-title').forEach(el => el.classList.add('reveal'));
-        document.querySelectorAll('.skill-item').forEach((el, i) => {
-            el.classList.add('reveal');
-            el.style.transitionDelay = `${(i % 8) * 0.05}s`;
-        });
-        document.querySelectorAll('.project-card').forEach((el, i) => {
-            el.classList.add('reveal');
-            el.style.transitionDelay = `${(i % 6) * 0.1}s`;
-        });
-        document.querySelectorAll('.experience-item').forEach((el, i) => {
-            el.classList.add('reveal');
-            el.style.transitionDelay = `${i * 0.15}s`;
-        });
-
-        window.addEventListener('scroll', reveal);
-        reveal(); // Initial call
-
-        // Set current year in footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-        </script>
-    </body>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>

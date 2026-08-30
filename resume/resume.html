@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Daniil Zinovyev — Résumé</title>
+    <style>
+      /* Letter page with generous but not wasteful margins. Everything is sized
+         in pt so the PDF matches what a print shop would produce. */
+      @page {
+        size: letter;
+        margin: 0.42in 0.5in;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 9pt;
+        line-height: 1.3;
+        color: #16181d;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      a {
+        color: #16181d;
+        text-decoration: none;
+      }
+
+      /* ------------------------------------------------------------ header */
+
+      header {
+        border-bottom: 1.5pt solid #16181d;
+        padding-bottom: 5pt;
+        margin-bottom: 8pt;
+      }
+
+      .name {
+        font-size: 21pt;
+        font-weight: 700;
+        letter-spacing: -0.6pt;
+        line-height: 1;
+        margin: 0 0 2pt;
+      }
+
+      .headline {
+        font-size: 10pt;
+        font-weight: 500;
+        color: #3d4250;
+        margin: 0 0 5pt;
+      }
+
+      .contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 12pt;
+        font-size: 8.7pt;
+        color: #3d4250;
+      }
+
+      .contact span::before {
+        content: "";
+      }
+
+      /* ---------------------------------------------------------- sections */
+
+      section {
+        margin-bottom: 7.5pt;
+      }
+
+      h2 {
+        font-size: 8.4pt;
+        font-weight: 700;
+        letter-spacing: 1.1pt;
+        text-transform: uppercase;
+        color: #16181d;
+        margin: 0 0 4.5pt;
+        padding-bottom: 2pt;
+        border-bottom: 0.6pt solid #c4c8d2;
+      }
+
+      .entry {
+        margin-bottom: 6pt;
+      }
+
+      .entry:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Role on the left, dates flush right on the same baseline. */
+      .entry__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10pt;
+        margin-bottom: 2.5pt;
+      }
+
+      .entry__role {
+        font-size: 9.7pt;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .entry__org {
+        font-weight: 500;
+        color: #3d4250;
+      }
+
+      .entry__dates {
+        flex: none;
+        font-size: 8.7pt;
+        color: #5b6070;
+        white-space: nowrap;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 11pt;
+      }
+
+      li {
+        margin-bottom: 2pt;
+      }
+
+      li::marker {
+        color: #8b90a0;
+      }
+
+      /* ---------------------------------------------------------- projects */
+
+      .project {
+        margin-bottom: 4.5pt;
+      }
+
+      .project:last-child {
+        margin-bottom: 0;
+      }
+
+      .project__title {
+        font-weight: 700;
+      }
+
+      .project__stack {
+        color: #5b6070;
+        font-size: 8.7pt;
+      }
+
+      .project__body {
+        margin: 1pt 0 0;
+      }
+
+      /* ------------------------------------------------------------ skills */
+
+      .skills {
+        display: grid;
+        grid-template-columns: 62pt 1fr;
+        gap: 3pt 8pt;
+      }
+
+      .skills dt {
+        font-weight: 700;
+        font-size: 8.8pt;
+      }
+
+      .skills dd {
+        margin: 0;
+        color: #2b2f3a;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1 class="name">Daniil Zinovyev</h1>
+      <p class="headline">Senior Software Development Engineer</p>
+      <div class="contact">
+        <span>zinovyevdaniil@gmail.com</span>
+        <span>(647) 779-4408</span>
+        <span>Toronto, Canada</span>
+        <span>daniilzinovyev.com</span>
+        <span>github.com/DanZinov</span>
+        <span>linkedin.com/in/daniilzinovyev</span>
+      </div>
+    </header>
+
+    <section>
+      <h2>Experience</h2>
+
+      <div class="entry">
+        <div class="entry__head">
+          <p class="entry__role">
+            Senior Software Development Engineer,
+            <span class="entry__org">Amazon</span>
+          </p>
+          <span class="entry__dates">March 2021 – Present</span>
+        </div>
+        <ul>
+          <li>
+            Built a large-scale learning management system for Amazon associates in a
+            fast-paced agile environment, working directly with stakeholders to shape the
+            application around their training and development needs.
+          </li>
+          <li>
+            Designed an end-to-end data reporting solution for business intelligence on
+            Spark, Kafka, ElasticSearch, Glue, and Kinesis, turning raw operational events
+            into decision-ready insight.
+          </li>
+          <li>
+            Delivered resilient, scalable services across Lambda, DynamoDB, S3, SNS, and
+            Step Functions.
+          </li>
+          <li>
+            Worked across TypeScript (Node.js), Java, and Python, using Angular to build
+            feature-rich, responsive web front ends.
+          </li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry__head">
+          <p class="entry__role">
+            Machine Learning Engineer, <span class="entry__org">RBC, Toronto</span>
+          </p>
+          <span class="entry__dates">May 2019 – August 2019</span>
+        </div>
+        <ul>
+          <li>
+            Developed analytics in Python, SQL, and JavaScript alongside the machine
+            learning team, and optimized feature bucketing distribution algorithms over
+            Big Data managed on a Hadoop cluster.
+          </li>
+          <li>
+            Analyzed XGBoost and Random Forest performance using ROC curves,
+            non-cumulative lifts, and confusion matrices.
+          </li>
+          <li>
+            Implemented the LIME explainer for black-box model testing and automated the
+            client look-up dashboards built around it.
+          </li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry__head">
+          <p class="entry__role">
+            Teaching Assistant, <span class="entry__org">University of Toronto</span>
+          </p>
+          <span class="entry__dates">September 2016 – December 2017</span>
+        </div>
+        <ul>
+          <li>
+            Tutored first-year mathematics and computer science, guiding students through
+            the transition from high school to university coursework.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Personal Projects</h2>
+
+      <div class="project">
+        <p class="project__title">
+          Halvy
+          <span class="project__stack">
+            — React Native (Expo), TypeScript, AWS CDK, DynamoDB, Lambda
+          </span>
+        </p>
+        <p class="project__body">
+          Cross-platform shared-expense app for couples and households. Built an
+          integer-cent split engine covering equal, exact, percentage, share, and
+          proportional-by-income splits with exact settlement, on an offline-first SQLite
+          client backed by a serverless API.
+        </p>
+      </div>
+
+      <div class="project">
+        <p class="project__title">
+          Seatt
+          <span class="project__stack">
+            — React Native, Hono, TypeScript, DynamoDB, Rekognition, Stripe
+          </span>
+        </p>
+        <p class="project__body">
+          Dating app built around concrete, time-boxed plans instead of profiles. Designed
+          a single-table data model and an event-driven backend that handles seat expiry,
+          grace windows, and automated photo moderation. Live at seatt.app.
+        </p>
+      </div>
+
+      <div class="project">
+        <p class="project__title">
+          MedSentri
+          <span class="project__stack">
+            — React, TypeScript, OpenSearch, API Gateway, Cognito, Claude
+          </span>
+        </p>
+        <p class="project__body">
+          Medical-information platform that normalizes FDA, Health Canada,
+          ClinicalTrials.gov, WHO, CDC, and RxNorm data into one searchable surface across
+          roughly fifty Lambda handlers, with plain-language AI summaries. Live at
+          medsentri.com.
+        </p>
+      </div>
+
+      <div class="project">
+        <p class="project__title">
+          DareUp
+          <span class="project__stack">
+            — React Native (Expo), TypeScript, AWS CDK, Lambda, Vite
+          </span>
+        </p>
+        <p class="project__body">
+          Short-form video app for completing and sharing dares, shipped as a mobile
+          client, admin dashboard, and marketing site from one repository, with every AWS
+          resource defined in CDK. Live at dareup.app.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="entry__head">
+          <p class="entry__role">
+            University of Toronto Scarborough
+          </p>
+          <span class="entry__dates">September 2016 – April 2020</span>
+        </div>
+        <p style="margin: 0; color: #3d4250">
+          Honours Bachelor of Science, Mathematical and Computer Sciences
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <dl class="skills">
+        <dt>Languages</dt>
+        <dd>TypeScript, Java, Python, JavaScript, C#, SQL, C++</dd>
+
+        <dt>Cloud</dt>
+        <dd>
+          AWS CDK, Lambda, DynamoDB, S3, CloudFront, Step Functions, API Gateway, Cognito,
+          SNS
+        </dd>
+
+        <dt>Data</dt>
+        <dd>Spark, Kafka, Kinesis, Glue, ElasticSearch, OpenSearch, MongoDB, MySQL</dd>
+
+        <dt>Client</dt>
+        <dd>React, React Native, Expo, Angular, Node.js, Three.js, Vite</dd>
+      </dl>
+    </section>
+  </body>
+</html>

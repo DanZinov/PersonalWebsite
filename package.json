@@ -1,28 +1,26 @@
 {
-  "name": "particles.js",
+  "name": "daniilzinovyev-website",
   "version": "2.0.0",
-  "description": "A lightweight JavaScript library for creating particles",
-  "homepage": "http://vincentgarreau.com/particles.js",
+  "private": true,
+  "type": "module",
+  "description": "Personal website for Daniil Zinovyev",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "npm run resume && tsc --noEmit && vite build",
+    "build:site": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "resume": "node resume/render.mjs",
+    "infra:synth": "npm --prefix infra run synth",
+    "infra:diff": "npm --prefix infra run diff",
+    "deploy": "npm run build && npm --prefix infra run deploy"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/VincentGarreau/particles.js.git"
+  "dependencies": {
+    "three": "^0.169.0"
   },
-  "keywords": [
-    "particles",
-    "particle",
-    "canvas"
-  ],
-  "author": "Vincent Garreau",
-  "license": "MIT",
-  "files": [
-    "particles.js",
-    "particles.min.js"
-  ],
-  "bugs": {
-    "url": "https://github.com/VincentGarreau/particles.js/issues"
-  },
-  "homepage": "https://github.com/VincentGarreau/particles.js"
+  "devDependencies": {
+    "@types/three": "^0.169.0",
+    "puppeteer": "^23.6.0",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10"
+  }
 }
