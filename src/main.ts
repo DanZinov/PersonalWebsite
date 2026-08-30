@@ -197,6 +197,21 @@ function renderContact() {
 // ----------------------------------------------------------------- motion ---
 
 function watchReveals() {
+  const targets = document.querySelectorAll<HTMLElement>(".reveal");
+
+  // Without the observer, content must still be readable rather than stuck at
+  // opacity 0.
+  if (!("IntersectionObserver" in window)) {
+    for (const node of targets) node.classList.add("is-visible");
+    return;
+  }
+
+  /**
+   * A small fixed inset rather than a percentage. A percentage margin scales
+   * with the viewport, so on a short window it combined with a 5% threshold to
+   * leave a dead band at the bottom of the page where an element could sit
+   * fully on screen and still never reveal. The contact email landed in it.
+   */
   const observer = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
@@ -205,10 +220,10 @@ function watchReveals() {
         observer.unobserve(entry.target);
       }
     },
-    { rootMargin: "0px 0px -12% 0px", threshold: 0.05 },
+    { rootMargin: "0px 0px -48px 0px", threshold: 0 },
   );
 
-  for (const node of document.querySelectorAll(".reveal")) {
+  for (const node of targets) {
     observer.observe(node);
   }
 }

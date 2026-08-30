@@ -28,6 +28,18 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/**
+ * Smooth scrolling is for clicking a nav link. On a touch screen it also
+ * intercepts flicks, so the browser's own momentum and the CSS animation fight
+ * over the scroll position and the page jerks when you reverse direction.
+ * Native momentum is better than anything this rule adds.
+ */
+@media (pointer: coarse) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -130,6 +142,33 @@ ul {
         rgba(5, 6, 10, 0) 30%,
         rgba(5, 6, 10, 0.5) 100%
       );
+  }
+
+  /**
+   * A backdrop blur has to re-sample whatever is behind it every frame, and
+   * what is behind it here is a full-screen WebGL canvas that repaints
+   * continuously. That is a scroll-killer on a phone GPU. The veil above
+   * already darkens the field, so opaque panels look the same and cost
+   * nothing.
+   */
+  .nav,
+  .project,
+  .aside-card,
+  .skill-group,
+  .education {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .nav {
+    background: rgba(5, 6, 10, 0.95);
+  }
+
+  .project,
+  .aside-card,
+  .skill-group,
+  .education {
+    background: rgba(13, 15, 24, 0.96);
   }
 }
 

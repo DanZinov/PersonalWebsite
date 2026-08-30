@@ -155,6 +155,8 @@ export function createParticleField(
    * directly behind every line of text no matter where it is pushed. It has to
    * be dimmer there to stay readable, and there is no point sliding it aside.
    */
+  const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+
   let narrow = window.innerWidth < 900;
   let opacityTarget = narrow ? 0.3 : 0.6;
 
@@ -164,8 +166,15 @@ export function createParticleField(
 
     narrow = width < 900;
     opacityTarget = narrow ? 0.3 : 0.6;
-    // Bloom is fill-rate bound, so cap DPR rather than rendering 3x on phones.
-    const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
+
+    /**
+     * Bloom is fill-rate bound and by far the most expensive thing here, so a
+     * phone gets neither it nor a high pixel ratio. Losing the glow costs
+     * little when the field is already dimmed to sit behind text, and it buys
+     * back the headroom that keeps scrolling smooth.
+     */
+    bloom.enabled = !narrow;
+    const dpr = Math.min(window.devicePixelRatio || 1, narrow ? 1.25 : 1.75);
 
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
@@ -180,6 +189,20 @@ export function createParticleField(
     uniforms.uSize.value = width < 700 ? 3.4 : 2.6;
   }
   resize();
+
+  /**
+   * Mobile browsers fire `resize` mid-scroll every time the URL bar slides in
+   * or out, and reallocating the render targets on each one is what makes the
+   * page jerk when you reverse direction. The viewport width has not actually
+   * changed in that case, so ignore it and let the canvas stretch by the few
+   * pixels of chrome instead.
+   */
+  let lastWidth = window.innerWidth;
+  function onWindowResize() {
+    if (isCoarsePointer && window.innerWidth === lastWidth) return;
+    lastWidth = window.innerWidth;
+    resize();
+  }
 
   // ---- input --------------------------------------------------------------
   const pointerNdc = new Vector2(0, 0);
@@ -204,12 +227,11 @@ export function createParticleField(
   }
 
   // Touch devices get the drift and morph but no cursor repulsion.
-  const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
   if (!isCoarsePointer) {
     window.addEventListener("pointermove", onPointerMove, { passive: true });
     window.addEventListener("pointerleave", onPointerLeave);
   }
-  window.addEventListener("resize", resize);
+  window.addEventListener("resize", onWindowResize);
 
   // ---- state --------------------------------------------------------------
   let scrollTarget = 0;
@@ -351,7 +373,7 @@ export function createParticleField(
     dispose() {
       cancelAnimationFrame(frame);
       document.removeEventListener("visibilitychange", onVisibility);
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", onWindowResize);
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerleave", onPointerLeave);
       geometry.dispose();
