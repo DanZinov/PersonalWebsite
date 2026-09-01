@@ -128,106 +128,6 @@ ul {
     radial-gradient(120% 80% at 50% 0%, rgba(5, 6, 10, 0) 35%, rgba(5, 6, 10, 0.6) 100%);
 }
 
-/**
- * On a phone the copy runs the full width, so there is no clear side to push
- * the field to and the column scrim above protects nothing. Swap it for a flat
- * veil: the field becomes texture behind the words instead of competing.
- */
-/**
- * Phone layout. The field stays as bright as it is on desktop; readability
- * comes from giving the running text its own translucent panel instead, the
- * same treatment the project cards already get. Dimming the whole field to
- * protect the copy costs the thing worth looking at.
- */
-@media (max-width: 900px) {
-  :root {
-    --panel: rgba(11, 13, 21, 0.76);
-  }
-
-  .backdrop {
-    /* Light wash only: enough to keep the field off pure white, no more. */
-    background:
-      linear-gradient(180deg, rgba(5, 6, 10, 0.34) 0%, rgba(5, 6, 10, 0.28) 100%),
-      radial-gradient(
-        110% 60% at 50% 0%,
-        rgba(5, 6, 10, 0) 30%,
-        rgba(5, 6, 10, 0.45) 100%
-      );
-  }
-
-  /**
-   * A backdrop blur re-samples whatever is behind it every frame, and behind
-   * it here is a WebGL canvas that repaints continuously. That is a
-   * scroll-killer on a phone GPU, so the panels are flat translucent fills.
-   */
-  .nav,
-  .project,
-  .aside-card,
-  .skill-group,
-  .education {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-
-  .nav {
-    background: rgba(5, 6, 10, 0.92);
-  }
-
-  .project,
-  .aside-card,
-  .skill-group,
-  .education {
-    background: var(--panel);
-  }
-
-  /* Body copy that previously sat straight on the particles. */
-  .hero__intro,
-  .section__note {
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 1rem;
-    padding: 1.1rem 1.2rem;
-  }
-
-  .hero__intro {
-    gap: 0.9rem;
-  }
-
-  /* The timeline rail reads as clutter next to panels, so jobs become cards. */
-  .timeline {
-    border-left: 0;
-    padding-left: 0;
-    gap: 1rem;
-  }
-
-  .job {
-    padding: 1.4rem;
-    border: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    border-radius: 1rem;
-    background: var(--panel);
-  }
-
-  .job::before {
-    display: none;
-  }
-
-  .contact__email {
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-bottom-color: var(--line-strong);
-    border-radius: 0.75rem;
-    padding: 0.7rem 0.9rem;
-  }
-
-  .contact__links {
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 0.75rem;
-    padding: 0.9rem 1rem;
-    gap: 1.25rem;
-  }
-}
 
 body.no-webgl .backdrop {
   background:
@@ -798,7 +698,7 @@ main {
 .job__head {
   display: grid;
   gap: 0.25rem;
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.35rem;
 }
 
 .job__role {
@@ -819,7 +719,7 @@ main {
 
 .job__bullets {
   display: grid;
-  gap: 0.7rem;
+  gap: 0.95rem;
   max-width: var(--measure);
   color: var(--ink-dim);
   font-size: 0.97rem;
@@ -827,17 +727,20 @@ main {
 
 .job__bullets li {
   position: relative;
-  padding-left: 1.15rem;
+  padding-left: 1.3rem;
 }
 
 .job__bullets li::before {
   content: "";
   position: absolute;
-  left: 0;
-  top: 0.72em;
+  left: 0.1rem;
+  /* Sits on the first line's optical centre rather than its baseline. */
+  top: 0.62em;
   width: 5px;
-  height: 1px;
-  background: var(--ink-faint);
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.75;
 }
 
 .education {
@@ -984,5 +887,109 @@ main {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* ======================================================= phone layout === */
+/* Kept last on purpose: these rules override base rules of equal
+   specificity, so they only win if they come after them. */
+/**
+ * On a phone the copy runs the full width, so there is no clear side to push
+ * the field to and the column scrim above protects nothing. Swap it for a flat
+ * veil: the field becomes texture behind the words instead of competing.
+ */
+/**
+ * Phone layout. The field stays as bright as it is on desktop; readability
+ * comes from giving the running text its own translucent panel instead, the
+ * same treatment the project cards already get. Dimming the whole field to
+ * protect the copy costs the thing worth looking at.
+ */
+@media (max-width: 900px) {
+  :root {
+    --panel: rgba(11, 13, 21, 0.76);
+  }
+
+  .backdrop {
+    /* Light wash only: enough to keep the field off pure white, no more. */
+    background:
+      linear-gradient(180deg, rgba(5, 6, 10, 0.34) 0%, rgba(5, 6, 10, 0.28) 100%),
+      radial-gradient(
+        110% 60% at 50% 0%,
+        rgba(5, 6, 10, 0) 30%,
+        rgba(5, 6, 10, 0.45) 100%
+      );
+  }
+
+  /**
+   * A backdrop blur re-samples whatever is behind it every frame, and behind
+   * it here is a WebGL canvas that repaints continuously. That is a
+   * scroll-killer on a phone GPU, so the panels are flat translucent fills.
+   */
+  .nav,
+  .project,
+  .aside-card,
+  .skill-group,
+  .education {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .nav {
+    background: rgba(5, 6, 10, 0.92);
+  }
+
+  .project,
+  .aside-card,
+  .skill-group,
+  .education {
+    background: var(--panel);
+  }
+
+  /* Body copy that previously sat straight on the particles. */
+  .hero__intro,
+  .section__note {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    padding: 1.4rem 1.35rem;
+  }
+
+  .hero__intro {
+    gap: 1rem;
+  }
+
+  /* The timeline rail reads as clutter next to panels, so jobs become cards. */
+  .timeline {
+    border-left: 0;
+    padding-left: 0;
+    gap: 1rem;
+  }
+
+  .job {
+    padding: 1.75rem 1.5rem;
+    border: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    border-radius: 1rem;
+    background: var(--panel);
+  }
+
+  .job::before {
+    display: none;
+  }
+
+  .contact__email {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-bottom-color: var(--line-strong);
+    border-radius: 0.85rem;
+    padding: 0.95rem 1.15rem;
+  }
+
+  .contact__links {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 0.85rem;
+    padding: 1.15rem 1.25rem;
+    gap: 1.4rem;
   }
 }
