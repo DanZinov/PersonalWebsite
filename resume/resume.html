@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Daniil Zinovyev — Résumé</title>
+    <title>Daniil Zinovyev, Résumé</title>
     <style>
       /* Letter page with generous but not wasteful margins. Everything is sized
          in pt so the PDF matches what a print shop would produce. */
@@ -24,7 +24,7 @@
       body {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 9pt;
-        line-height: 1.3;
+        line-height: 1.27;
         color: #16181d;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
@@ -66,6 +66,21 @@
         color: #3d4250;
       }
 
+      .summary {
+        margin: 6pt 0 0;
+        font-size: 9pt;
+        color: #2b2f3a;
+      }
+
+      /* One line of scale context under a role, so the bullets can stay
+         about the work rather than re-explaining the platform each time. */
+      .entry__context {
+        margin: 0 0 3pt;
+        font-size: 8.5pt;
+        font-style: italic;
+        color: #5b6070;
+      }
+
       .contact span::before {
         content: "";
       }
@@ -73,7 +88,7 @@
       /* ---------------------------------------------------------- sections */
 
       section {
-        margin-bottom: 7.5pt;
+        margin-bottom: 6.5pt;
       }
 
       h2 {
@@ -137,8 +152,10 @@
 
       /* ---------------------------------------------------------- projects */
 
+      /* One flowing paragraph per project: name, stack and summary all inline,
+         which fits three of them in the space two used to take. */
       .project {
-        margin-bottom: 4.5pt;
+        margin: 0 0 3.5pt;
       }
 
       .project:last-child {
@@ -190,6 +207,10 @@
         <span>github.com/DanZinov</span>
         <span>linkedin.com/in/daniilzinovyev</span>
       </div>
+      <p class="summary">
+        Distributed systems engineer: high-throughput serverless services, the multi-region
+        infrastructure they ship on, and AI developer tooling.
+      </p>
     </header>
 
     <section>
@@ -203,29 +224,53 @@
           </p>
           <span class="entry__dates">March 2021 – Present</span>
         </div>
+        <p class="entry__context">
+          Internal learning platform training 2M+ frontline workers a year across ~2,000
+          sites. Roughly 24 services and 40 deployment pipelines live in 4 AWS regions.
+          Promoted twice: SDE I to SDE II to Senior.
+        </p>
         <ul>
           <li>
-            Designed and implemented a unified micro-frontend architecture that
-            consolidates 80+ scattered internal warehouse-management tools into a single
-            platform, giving operators one place to run a site at a glance.
+            Co-led the replacement of a 15-year-old tier-1 identity service serving 280
+            client systems at a 5,000 request/second baseline, a deprecation deferred since
+            2021. Reached full feature parity in four weeks and consolidated 22 legacy RPC
+            operations into 7 on Smithy/CBOR, over Lambda, DynamoDB and OpenSearch
+            Serverless.
           </li>
           <li>
-            Built a large-scale learning management system for Amazon associates in a
-            fast-paced agile environment, working directly with stakeholders to shape the
-            application around their training and development needs.
+            Built that service's resilience layer: circuit breakers on every dependency,
+            per-client rate limiting on ElastiCache/Valkey with dynamic configuration, and
+            chaos and fault-injection testing. Sustains 5,000 req/s with over 2x headroom
+            while down an availability zone, validated by capacity modelling with Little's
+            Law. Wrote the 1,200-line handbook: SLOs, a runbook per alarm, and disaster
+            recovery at a 120-minute RTO and 5-second RPO.
           </li>
           <li>
-            Designed an end-to-end data reporting solution for business intelligence on
-            Spark, ElasticSearch, Glue, and Kinesis, turning raw operational events into
-            decision-ready insight.
+            Built the platform's multi-region CI/CD from nothing: region-ordered production
+            waves, bake times, promotion gated on the receiving region's own service
+            health, automatic rollback on production alarms, and deploys blocked
+            automatically during company-wide peak traffic events.
           </li>
           <li>
-            Delivered resilient, scalable services across Lambda, DynamoDB, S3, SNS, and
-            Step Functions.
+            Shipped 7 internal AI developer tools adopted beyond my team: a Model Context
+            Protocol server exposing platform APIs to coding agents (~20 tools, 988 tests),
+            and a multi-agent review pipeline whose reviewers are read-only by construction,
+            so the agent that wrote the code cannot approve it. An AWS Bedrock (Claude)
+            migration tool is projected to cut per-service region migration from weeks to
+            days.
           </li>
           <li>
-            Worked across TypeScript (Node.js), Java, and Python, using Angular to build
-            feature-rich, responsive web front ends.
+            Traced 46% of team support tickets to an untyped delimited-text data pipeline
+            and rebuilt it on Apache Parquet with Spark date and hour partitioning and
+            streaming ingestion: backfills 10x faster, data freshness from 1 hour to 15
+            minutes, and reporting tickets down 77% year over year.
+          </li>
+          <li>
+            Diagnosed a peak-season retry storm that cascaded into an authorization failure
+            across 32 sites, authored the postmortem, and closed the detection gaps; those
+            alarms have since caught multiple incidents before they reached customers. A
+            CloudWatch threshold-tuning tool I built cut false-positive pages by over 90%
+            and on-call interruptions from 5+ a week to 0 or 1.
           </li>
         </ul>
       </div>
@@ -239,32 +284,9 @@
         </div>
         <ul>
           <li>
-            Developed analytics in Python, SQL, and JavaScript alongside the machine
-            learning team, and optimized feature bucketing distribution algorithms over
-            Big Data managed on a Hadoop cluster.
-          </li>
-          <li>
-            Analyzed XGBoost and Random Forest performance using ROC curves,
-            non-cumulative lifts, and confusion matrices.
-          </li>
-          <li>
-            Implemented the LIME explainer for black-box model testing and automated the
-            client look-up dashboards built around it.
-          </li>
-        </ul>
-      </div>
-
-      <div class="entry">
-        <div class="entry__head">
-          <p class="entry__role">
-            Teaching Assistant, <span class="entry__org">University of Toronto</span>
-          </p>
-          <span class="entry__dates">September 2016 – December 2017</span>
-        </div>
-        <ul>
-          <li>
-            Tutored first-year mathematics and computer science, guiding students through
-            the transition from high school to university coursework.
+            Built model-performance analytics in Python and SQL over Big Data on a Hadoop
+            cluster, evaluated XGBoost and Random Forest with ROC curves and non-cumulative
+            lifts, and implemented the LIME explainer for black-box model testing.
           </li>
         </ul>
       </div>
@@ -273,64 +295,29 @@
     <section>
       <h2>Personal Projects</h2>
 
-      <div class="project">
-        <p class="project__title">
-          Halvy
-          <span class="project__stack">
-            — React Native (Expo), TypeScript, AWS CDK, DynamoDB, Lambda
-          </span>
-        </p>
-        <p class="project__body">
-          Cross-platform shared-expense app for couples and households. Built an
-          integer-cent split engine covering equal, exact, percentage, share, and
-          proportional-by-income splits with exact settlement, on an offline-first SQLite
-          client backed by a serverless API. Live on the App Store and at usehalvy.com.
-        </p>
-      </div>
+      <p class="entry__context">
+        Designed, built and operated solo, end to end: data model, API, client and the CDK
+        infrastructure underneath.
+      </p>
 
-      <div class="project">
-        <p class="project__title">
-          Seatt
-          <span class="project__stack">
-            — React Native, Hono, TypeScript, DynamoDB, Rekognition, RevenueCat
-          </span>
-        </p>
-        <p class="project__body">
-          Dating app built around concrete, time-boxed plans instead of profiles. Designed
-          a single-table data model and an event-driven backend that handles seat expiry,
-          grace windows, and automated photo moderation. Live on the App Store and at
-          seatt.app.
-        </p>
-      </div>
+      <p class="project">
+        <span class="project__title">Halvy</span>
+        <span class="project__stack">
+          (React Native, TypeScript, AWS CDK, DynamoDB, Lambda).
+        </span>
+        Shared-expense app for couples and households. Integer-cent split engine with
+        exact settlement over an offline-first SQLite client and a serverless API. On the
+        App Store and at usehalvy.com.
+      </p>
 
-      <div class="project">
-        <p class="project__title">
-          MedSentri
-          <span class="project__stack">
-            — React, TypeScript, OpenSearch, API Gateway, Cognito, Claude
-          </span>
-        </p>
-        <p class="project__body">
-          Medical-information platform that normalizes FDA, Health Canada,
-          ClinicalTrials.gov, WHO, CDC, and RxNorm data into one searchable surface across
-          roughly fifty Lambda handlers, with plain-language AI summaries. Live at
-          medsentri.com.
-        </p>
-      </div>
-
-      <div class="project">
-        <p class="project__title">
-          DareUp
-          <span class="project__stack">
-            — React Native (Expo), TypeScript, AWS CDK, Lambda, Vite
-          </span>
-        </p>
-        <p class="project__body">
-          Short-form video app for completing and sharing dares, shipped as a mobile
-          client, admin dashboard, and marketing site from one repository, with every AWS
-          resource defined in CDK. Live at dareup.app.
-        </p>
-      </div>
+      <p class="project">
+        <span class="project__title">MedSentri</span>
+        <span class="project__stack">
+          (React, TypeScript, OpenSearch, API Gateway, Cognito, Claude).
+        </span>
+        Normalizes FDA, Health Canada, ClinicalTrials.gov, WHO, CDC and RxNorm data into
+        one searchable surface across roughly fifty Lambda handlers. Live at medsentri.com.
+      </p>
     </section>
 
     <section>
@@ -352,19 +339,31 @@
       <h2>Skills</h2>
       <dl class="skills">
         <dt>Languages</dt>
-        <dd>TypeScript, Java, Python, JavaScript, C#, SQL, C++</dd>
+        <dd>TypeScript, Java, Python, JavaScript, SQL</dd>
 
-        <dt>Cloud</dt>
+        <dt>Distributed</dt>
         <dd>
-          AWS CDK, Lambda, DynamoDB, S3, CloudFront, Step Functions, API Gateway, Cognito,
-          SNS
+          Circuit breakers, rate limiting, capacity modelling, chaos testing, multi-region
+          design, alarm design, incident response
         </dd>
 
-        <dt>Data</dt>
-        <dd>Spark, Kafka, Kinesis, Glue, ElasticSearch, OpenSearch, MongoDB, MySQL</dd>
+        <dt>AWS</dt>
+        <dd>
+          Lambda, DynamoDB, OpenSearch Serverless, ElastiCache/Valkey, API Gateway, Step
+          Functions, Kinesis, CloudFront, CloudWatch, Bedrock
+        </dd>
 
-        <dt>Client</dt>
-        <dd>React, React Native, Expo, Angular, Node.js, Three.js, Vite</dd>
+        <dt>Platform</dt>
+        <dd>
+          AWS CDK, CloudFormation, CI/CD design with automatic rollback, Apache Spark,
+          Apache Parquet, streaming ingestion
+        </dd>
+
+        <dt>AI systems</dt>
+        <dd>
+          Bedrock (Claude), Model Context Protocol servers, agentic tool-use loops,
+          sandboxed agent execution, multi-agent review pipelines
+        </dd>
       </dl>
     </section>
   </body>
