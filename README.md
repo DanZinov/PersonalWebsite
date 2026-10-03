@@ -50,6 +50,20 @@ npm run resume       # re-render the PDF (warns if it spills past one page)
 
 `npm run build` runs this automatically, so a deploy never ships a stale PDF.
 
+To publish a supplied PDF directly, copy it to `public/Resume.pdf`, then upload
+only that file using the `personal` AWS profile:
+
+```bash
+cp /path/to/Resume.pdf public/Resume.pdf
+aws --profile personal s3 cp public/Resume.pdf s3://daniilzinovyev.com/Resume.pdf --content-type application/pdf
+aws --profile personal cloudfront create-invalidation --distribution-id E3FG7G20EJZ8OE --paths /Resume.pdf
+```
+
+The existing résumé buttons serve `https://www.daniilzinovyev.com/Resume.pdf`.
+This direct upload preserves the supplied PDF exactly. A subsequent full build
+regenerates it from `resume/resume.html`, so keep that source in sync before a
+full-site deployment.
+
 ## Infrastructure
 
 | | |
